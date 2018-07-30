@@ -1,0 +1,17 @@
+{
+  "name": "mathematics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "gen": "node index.js"
+  },
+  "author": "aziis98 <antonio.delucreziis@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "globby": "^8.0.1",
+    "highlight.js": "^9.12.0",
+    "lodash": "^4.17.10",
+    "marked": "^0.4.0"
+  }
+}
