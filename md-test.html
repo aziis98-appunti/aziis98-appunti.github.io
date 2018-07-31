@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=0.8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<title>Md Test</title>
+
+	<link rel="stylesheet" href="/assets/katex.min.css">
+	<link rel="stylesheet" href="/assets/tomorrow.css">
+	
+	<link rel="stylesheet" href="/assets/fonts/cmun-serif.css">
+	
+	<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+	<h1 id="heading-h1">Heading H1</h1>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti, provident?</p>
+<h2 id="heading-h2">Heading H2</h2>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum libero omnis velit repellendus sunt. Tempore incidunt voluptates nulla optio aspernatur impedit. Eligendi sed mollitia amet est rerum inventore esse! Nemo!</p>
+<h3 id="heading-h3">Heading H3</h3>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum repudiandae temporibus, optio voluptatibus obcaecati iure esse tempora ratione. Excepturi quam delectus non dolorum! Dolorem, hic laborum esse amet dolorum rerum?</p>
+<h4 id="heading-h4">Heading H4</h4>
+<p>Lorem ipsum dolor sit amet consectetur (adipisicing)[<a href="http://www.google.com%5D">www.google.com]</a> elit. Porro ipsa consequatur ab nisi ipsam qui quisquam odit, quis asperiores perspiciatis, delectus omnis deleniti fuga! Architecto laboriosam corrupti cumque eum ducimus!</p>
+<h3 id="heading-h3">Heading H3</h3>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum repudiandae temporibus, optio voluptatibus obcaecati iure esse tempora ratione. Excepturi quam delectus non dolorum! Dolorem, hic laborum esse amet dolorum rerum?</p>
+<h4 id="heading-h4">Heading H4</h4>
+<p>Lorem ipsum dolor sit amet consectetur <a href="www.google.com">adipisicing</a> elit. Porro ipsa consequatur $x^2 + y^2 = z^2$, quis asperiores perspiciatis, delectus omnis deleniti fuga! Architecto $\mathbb{A}$ corrupti cumque eum ducimus!</p>
+<p>$$1 + 1 + 1 = 2 + 1 = 3$$</p>
+<p>Prova test</p>
+<hr>
+
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js"
+		integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/contrib/auto-render.min.js"
+		integrity="sha384-aGfk5kvhIq5x1x5YdvCp4upKZYnA8ckafviDpmWEKp4afOZEqOli7gqSnh8I6enH"
+		crossorigin="anonymous"></script>
+	<script>
+		renderMathInElement(document.body, {
+			delimiters: [
+				{left: "$$", right: "$$", display: true},
+				{left: "$", right: "$", display: false},
+			],
+			macros: {
+				'\\KK': '\\mathbb{K}',
+				'\\qed': '\\square',
+				'\\dim': '\\text{dim} \\,'
+			}
+		});
+	</script>
+</body>
+</html>
