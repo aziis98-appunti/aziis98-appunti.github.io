@@ -25,17 +25,17 @@ body {
 	padding: 2rem;
 	margin: 0;
 	
-	font-family: 'Computer Modern Sans';
+	font-family: 'Computer Modern Serif';
 }
 
 h1 {
-	font-size: 2.5rem;
+	font-size: 2.25rem;
 	
 	margin: 3rem 0 0;
 	padding: 0;
 }
 h2 {
-	font-size: 2.0rem;
+	font-size: 1.75rem;
 	
 	margin: 2rem 0 0;
 	padding: 0;
@@ -47,11 +47,41 @@ h3 {
 	padding: 0;
 }
 h4 {
-	font-size: 1.25rem;
+	font-size: 1.0rem;
 	
 	margin: 1rem 0 0;
 	padding: 0;
 }
+
+/*
+h1, h2, h3, h4 {
+	position: relative;
+}
+
+h1::before, h2::before, h3::before, h4::before {
+	position: absolute;
+	right: calc(100%);
+	padding-right: 0.5em;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	font-size: 83%;
+	font-family: 'Times';
+	transform: translate(0, -7%);
+}
+
+h1::before {
+	content: '§';
+}
+h2::before {
+	content: '§§';
+}
+h3::before {
+	content: '§§§';
+}
+h4::before {
+	content: '§§§§';
+} */
 
 h1 + h2,
 h2 + h3,
@@ -78,6 +108,16 @@ code {
 	font-weight: normal;
 	font-size: 90%;
 	line-height: 1.0;
+}
+
+.katex {
+	font-size: 100%;
+}
+
+.katex-display {
+	overflow-y: hidden;
+	overflow-x: auto;
+	padding-bottom: 0.25rem;
 }
 
 pre code {
@@ -123,12 +163,18 @@ blockquote p:last-child {
 }
 
 a {
-	color: blue;
+	color: royalblue;
 	text-decoration: none;
+	position: relative;
+	padding: 0 0.2rem;
+	margin: 0 -0.1rem;
+	border-radius: 3px;
+	
+	transition: background 150ms ease-out, color 50ms linear;
 }
 a:hover {
-	color: #5555ff;
-	text-decoration: underline;
+	color: white;
+	background: royalblue;
 }
 
 img {
@@ -149,20 +195,23 @@ img:hover {
 	border-color: black;
 }
 
-code::-webkit-scrollbar-track
+:not(body):not(html)::-webkit-scrollbar-track
 {
-	border-radius: 10px;
+	border-radius: 14px;
+	background-color: #f4f4f4;
+}
+
+:not(body):not(html)::-webkit-scrollbar
+{
+	width: 7px;
+	height: 7px;
 	background-color: transparent;
 }
 
-code::-webkit-scrollbar
+:not(body):not(html)::-webkit-scrollbar-thumb
 {
-	width: 10px;
-	background-color: transparent;
+	border-radius: 14px;
+	background-color: #d0d0d0;
 }
 
-code::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	background-color: #ddd;
-}
+
