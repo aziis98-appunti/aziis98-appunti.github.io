@@ -15,4 +15,4 @@ Trascrizione degli appunti di **Geometria 1** dell'anno 2017/2018.
 
 ## WIP
 
-I capitoli in corso di trascrizione possono essere trovati [qui](./_wip.html). Una volta che saranno decenti passeranno poi nel loro file.
+I capitoli in corso di trascrizione possono essere trovati [qui](./wip.html). Una volta che saranno decenti passeranno poi nel loro file.
