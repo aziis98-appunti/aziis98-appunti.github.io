@@ -82,20 +82,117 @@ $$
 
 $\qed$
 
-In generale $\forall \mathscr{B}$ base di $V$, $\mathscr{B}$ è una base di $V^*$ e quindi hanno la _stessa dimensione_ e si può definire un isomorfismo $\varphi_\mathscr{B} : V \to V^*$ tale che $$ \varphi_\mathscr{B} (v_i) = v^i $$
+In generale $\forall \mathscr{B}$ base di $V$, $\mathscr{B}^*$ è una base di $V^*$ e quindi hanno la _stessa dimensione_ e si può definire un isomorfismo $\phi_\mathscr{B} : V \to V^*$ tale che $$\phi_\mathscr{B} (v_i) = v^i$$
 
 ## Annullatore
 
 Sia $Z \subseteq V$ un sottospazio di $V$ con $\dim V = n$. L'**annullatore** di $Z$ è definito nel seguente modo.
 
+<!-- Definizione di Annullatore -->
+
 $$
 \text{Ann}(Z) \coloneqq 
-\left\{ \phi \in V^* \, | \, \phi(z)=0 \forall z \in Z \right\}
+\left\{ \phi \in V^* \, | \, \phi(z)=0 \quad \forall z \in Z \right\}
 $$
 
 $\text{Ann}(Z) \subseteq V^*$ ed è anche un sottospazio. Sappiamo che $0 \leq \dim Z, \dim \text{Ann}(Z) \leq \dim V^* = \dim V$.
 
 **Congettura.** $\dim \text{Ann}(Z) = \dim V - \dim Z$
+
+**Dim.** Fissiamo una base $\{ v_1, \dots, v_k \}$ di $Z$ ed estendiamola a base di $V$ ed avremo quindi $\{ v_1, \dots, v_k, v_{k+1}, \dots, v_n\}$ base di $V$.  Prendiamone ora la relativa base duale 
+$$
+\{ 
+	v^1, \dots, v^k, 
+	\underbrace{v^{k+1}, \dots, v^n}_{\in \text{Ann}(Z)} \} = \mathscr{B}^*
+$$
+I funzionali $v^{k+1}, \dots, v^n \in \text{Ann}(Z)$ sono _linearmente indipendenti_ perché formano parte della base $\mathscr{B}^*$. Basta ora mostrare che generano tutto l'annullatore. Poiché $\mathscr{B}^*$ genera $V^*$ possiamo esprimere un funzionale come
+$$
+\phi = a_1 v^1 + \cdots + a_k v^k + b_1 v^{k+1} + \cdots + b_{n-k} v^n
+$$
+Aggiungendo ora la condizione che $\phi \in \text{Ann}(Z) \implies \phi(v_j) = 0 \quad \forall j = 1 \dots k$ facendo i calcoli si può vedere che tutti gli $a_j = 0$ e rimangono solo i $b_i$. $\qed$ (?)
+
+### Proprietà & Relazioni
+
+- $\text{Ann}(Z)$ è un **sottospazio** di $V^*$.
+- $ S \subset T \subset V \implies \text{Ann}(T) \subset \text{Ann}(S)$
+- $U, W \subset V$ sottospazi $\implies \text{Ann}(U+W) = \text{Ann}(U) \cap \text{Ann}(W)$
+	
+	**Dim.** Per dimostrare questa proposizione mostriamo il doppio contenimento.
+	
+	$\boxed{\subseteq}$
+	$$
+	\begin{aligned}
+	U,W \subset U+W 
+		&\implies \text{Ann}(U+W) \subset \text{Ann}(U), \text{Ann}(W) \\
+		&\implies \text{Ann}(U+W) \subset \text{Ann}(U) \cap \text{Ann}(W)
+	\end{aligned}
+	$$
+
+	$\boxed{\supseteq}$
+	$$
+	\phi \in \text{Ann}(U) \cap \text{Ann}(W) \implies 
+		\begin{cases}
+		\phi(u) = 0 & \forall u \in U \\
+		\phi(w) = 0 & \forall w \in W 
+		\end{cases}
+	$$
+	$$
+	\begin{aligned}
+	v \in U + W 
+		&\implies \exists u \in U, \exists w \in W \text{ tale che } v = u + w \\
+		&\implies \phi(v) = \phi(u + w) = \phi(u) + \phi(v) = 0 \\
+		&\implies \phi \in \text{Ann}(U + W)
+	\end{aligned}
+	$$
+
+	$\qed$
+- $\text{Ann}(U \cap W) \supset \text{Ann}(U) + \text{Ann}(W)$ e se $\dim V = n < +\infty$ vale anche l'uguaglianza.
+
+	**Dim.** Dimostriamo un'inclusione e poi confrontiamo le dimensioni dei due oggetti.
+	
+	$\boxed{\supset}$
+
+	$$
+	\begin{aligned}
+		U \cap W \subset U, W 
+			&\implies \text{Ann}(U \cap W) \supset \text{Ann}(U), \text{Ann}(W) \\
+			&\implies \text{Ann}(U \cap W) \supset \text{Ann}(U) + \text{Ann}(W)
+	\end{aligned}
+	$$
+
+	Ora vediamo le dimensioni
+
+	$$ \text{dim} ( \text{Ann}(U) + \text{Ann}(W) ) = $$
+	$$
+	\begin{aligned}
+		&=
+		\underbrace{
+			\dim \text{Ann}(U)
+		}_{
+			= n - \dim U
+		}
+		+ 
+		\underbrace{
+			\dim \text{Ann}(W) 
+		}_{
+			= n - \dim W
+		}
+		- 
+		\underbrace{
+			\text{dim}(\text{Ann}(U) \cap \text{Ann}(W))
+		}_{
+			\scriptsize
+			\begin{aligned} 
+				&= \dim \text{Ann}(U+W) \\ 
+				&= n - \text{dim}(U+W) 
+			\end{aligned}
+		}
+		= \\
+		&= n - (\dim U + \dim W - \text{dim}(U + W)) = \\
+		&= n - \text{dim} (U \cap W) = \\
+		&= \dim \text{Ann}(U \cap W)
+	\end{aligned}
+	$$
 
 <script>
 	// Moves the view to the bottom for fast checking the last things written.
