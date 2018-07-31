@@ -1,6 +1,6 @@
-# Racconta dei miei appunti
+# Racconla dei miei appunti
 
-Qui tengo una raccolta di miei vari appunti trascritti negli anni.
+Qui tengo una raccolta di miei vari appunti trascritti negli anni, ok in realtà per ora sono solo al primo anno di università (Matematica a Pisa) quindi non c'è ancora molto.
 
 - Appunti di [Geometria 1](/geometria-1) dell'anno 2017/2018
 
