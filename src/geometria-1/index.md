@@ -1,3 +1,9 @@
+
+<center>
+	<a href="/" 
+		title="Raccolta di Appunti">Indietro</a>
+</center>
+
 # Geometria 1
 
 Trascrizione degli appunti di **Geometria 1** dell'anno 2017/2018.

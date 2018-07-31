@@ -1,6 +1,8 @@
 
 <center>
-	<a href="./index.html">Home</a>
+	<a 
+		href="/geometria-1/index.html"
+		title="Geometria 1">Indietro</a>
 </center>
 
 # Spazio Duale
@@ -193,8 +195,3 @@ Aggiungendo ora la condizione che $\phi \in \text{Ann}(Z) \implies \phi(v_j) = 0
 		&= \dim \text{Ann}(U \cap W)
 	\end{aligned}
 	$$
-
-<script>
-	// Moves the view to the bottom for fast checking the last things written.
-	setTimeout(() => scrollTo(0, 10000), 500);
-</script>
