@@ -84,7 +84,7 @@ $$
 
 $\qed$
 
-In generale $\forall \mathscr{B}$ base di $V$, $\mathscr{B}^*$ è una base di $V^*$ e quindi hanno la _stessa dimensione_ e si può definire un isomorfismo $\phi_\mathscr{B} : V \to V^*$ tale che $$\phi_\mathscr{B} (v_i) = v^i$$
+In generale $\forall \mathscr{B}$ base di $V$, $\mathscr{B}^*$ è una base di $V^*$ e quindi hanno la _stessa dimensione_ e si può definire un isomorfismo $\varphi_\mathscr{B} : V \to V^*$ tale che $$\varphi_\mathscr{B} (v_i) = v^i$$
 
 ## Annullatore
 
@@ -99,7 +99,8 @@ $$
 
 $\text{Ann}(Z) \subseteq V^*$ ed è anche un sottospazio. Sappiamo che $0 \leq \dim Z, \dim \text{Ann}(Z) \leq \dim V^* = \dim V$.
 
-**Congettura.** $\dim \text{Ann}(Z) = \dim V - \dim Z$
+**Congettura:**
+$$\dim \text{Ann}(Z) = \dim V - \dim Z$$
 
 **Dim.** Fissiamo una base $\{ v_1, \dots, v_k \}$ di $Z$ ed estendiamola a base di $V$ ed avremo quindi $\{ v_1, \dots, v_k, v_{k+1}, \dots, v_n\}$ base di $V$.  Prendiamone ora la relativa base duale 
 $$
@@ -195,3 +196,110 @@ Aggiungendo ora la condizione che $\phi \in \text{Ann}(Z) \implies \phi(v_j) = 0
 		&= \dim \text{Ann}(U \cap W)
 	\end{aligned}
 	$$
+
+## Null
+
+Sia $Z \subseteq V^*$ un sottospazio, si può definire il **luogo di zeri** di $Z$
+
+$$
+\text{Null}(Z) \coloneqq 
+\left\{ v \in V \taleche \forall \phi \in Z \quad \phi(v) = 0 \right\}
+$$
+
+La definizione può anche essere riscritta in termini dei $\Kernel \phi$ 
+
+$$
+\begin{aligned}
+	&= \bigcap_{\phi \in Z} \left\{ v \in V \taleche \phi(v) = 0 \right\} \\
+	&= \bigcap_{\phi \in Z} \Kernel \phi
+\end{aligned}
+$$
+
+#### Proprietà Random
+
+- $\phi = 0 \implies \text{Ker} \, \phi = V$
+- $\phi \neq 0 \implies \dim \text{Ker} \, \phi = n - 1$
+
+...
+
+## Applicazione lineare trasposta di $f$
+
+Data un'applicazione lineare $f : V \to W$ possiamo definire l'applicazione trasposta $f^t : W^* \to V^*$
+
+$$ f^t(\psi) \coloneqq \psi \circ f $$
+
+Mostriamo ora che rispetta la composizione di applicazioni lineari in modo controvariante.
+
+$$
+\begin{gathered}
+	V \xrightarrow{f} W \xrightarrow{g} Z \\
+	V \xrightarrow{ g \compose f } Z
+\end{gathered}
+$$
+
+Ed infatti vediamo che $(g \compose f)^t$ è la stessa cosa di $g^t \compose f^t$.
+
+$$
+\begin{gathered}
+	V^* \xleftarrow{f^t} W^* \xleftarrow{g^t} Z^* \\
+	V^* \xleftarrow{ (g \compose f)^t } Z^*
+\end{gathered}
+$$
+
+Possiamo ricavare l'equivalente della relazione $\dim V = \dim \Kernel f + \dim \text{Im } f$.
+
+$$ \dim W^* = \dim \Kernel f^t + \dim \text{Im } f^t $$
+
+$$ \text{Ker} f^t = \left\{ \psi \in W^* \taleche \forall v \in V \quad \psi(f(v)) = 0 \right\} = \text{Ann}(\Image f) $$
+
+$$
+\begin{aligned}
+	\dim \Kernel f^t
+	&= \dim \text{Ann} (\Image f) = \\
+	&= \dim V - \dim \Image f = \dim \Kernel f
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+	\dim W^* 
+	&= \dim \text{Ann}(\Image f) + \dim \Image f^t = \\
+	&= (\dim W - \dim \Image f) + \dim \Image f^t \\
+	&\implies \dim \Image f = \dim \Image f^t
+\end{aligned}
+$$
+
+Ora se osserviamo i seguenti diagrammi che commutano possiamo congetturare che $B = A^t$.
+
+$$
+\begin{array}{lllllll}
+	
+	V_\mathscr{B} & \xrightarrow{f} & W_\mathscr{D} 
+	& &
+	V^*_\mathscr{B^*} & \xleftarrow{f^t} & W^*_\mathscr{D^*} \\ \\
+	
+	\downarrow \scriptsize \text{[ ]}_\mathscr{B} & & \downarrow \scriptsize \text{[ ]}_\mathscr{D} 
+	& \quad &
+	\downarrow \scriptsize \text{[ ]}_\mathscr{B^*} & & \downarrow \scriptsize \text{[ ]}_\mathscr{D^*} \\ \\
+	
+	\KK^n & \xrightarrow[A]{} & \KK^m
+	& &
+	\KK^n & \xleftarrow[B]{} & \KK^m \\
+
+\end{array}
+$$
+
+Possiamo inoltre vedere che $\dim \Image f = \dim \Image f^t \implies \text{rango} A = \text{rango} A^t$.
+
+$$
+\begin{array}{lll}
+	
+	V_\mathscr{B} & \xrightarrow{\varphi_B} & V^*_\mathscr{B^*} \\ \\
+	
+	\downarrow & & \downarrow \\ \\
+	
+	\KK^n_\mathscr{C} & \xrightarrow{\square^t} & M_\mathscr{C^*}(1, n, \KK) \\
+	v & \longmapsto & v^t \\
+
+\end{array}
+$$

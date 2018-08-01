@@ -2,7 +2,9 @@
 <html lang="it">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=0.8">
+	<meta
+		name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=0.75">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 	<title>Wip</title>
@@ -83,7 +85,7 @@ $$</p>
 </li>
 </ol>
 <p>$\qed$</p>
-<p>In generale $\forall \mathscr{B}$ base di $V$, $\mathscr{B}^*$ è una base di $V^*$ e quindi hanno la <em>stessa dimensione</em> e si può definire un isomorfismo $\phi_\mathscr{B} : V \to V^*$ tale che $$\phi_\mathscr{B} (v_i) = v^i$$</p>
+<p>In generale $\forall \mathscr{B}$ base di $V$, $\mathscr{B}^*$ è una base di $V^*$ e quindi hanno la <em>stessa dimensione</em> e si può definire un isomorfismo $\varphi_\mathscr{B} : V \to V^*$ tale che $$\varphi_\mathscr{B} (v_i) = v^i$$</p>
 <h2 id="annullatore">Annullatore</h2>
 <p>Sia $Z \subseteq V$ un sottospazio di $V$ con $\dim V = n$. L&#39;<strong>annullatore</strong> di $Z$ è definito nel seguente modo.</p>
 <!-- Definizione di Annullatore -->
@@ -93,7 +95,8 @@ $$</p>
 \left\{ \phi \in V^* \, | \, \phi(z)=0 \quad \forall z \in Z \right\}
 $$</p>
 <p>$\text{Ann}(Z) \subseteq V^*$ ed è anche un sottospazio. Sappiamo che $0 \leq \dim Z, \dim \text{Ann}(Z) \leq \dim V^* = \dim V$.</p>
-<p><strong>Congettura.</strong> $\dim \text{Ann}(Z) = \dim V - \dim Z$</p>
+<p><strong>Congettura:</strong>
+$$\dim \text{Ann}(Z) = \dim V - \dim Z$$</p>
 <p><strong>Dim.</strong> Fissiamo una base $\{ v_1, \dots, v_k \}$ di $Z$ ed estendiamola a base di $V$ ed avremo quindi $\{ v_1, \dots, v_k, v_{k+1}, \dots, v_n\}$ base di $V$.  Prendiamone ora la relativa base duale 
 $$
 \{ 
@@ -181,6 +184,91 @@ Aggiungendo ora la condizione che $\phi \in \text{Ann}(Z) \implies \phi(v_j) = 0
 	$$</p>
 </li>
 </ul>
+<h2 id="null">Null</h2>
+<p>Sia $Z \subseteq V^*$ un sottospazio, si può definire il <strong>luogo di zeri</strong> di $Z$</p>
+<p>$$
+\text{Null}(Z) \coloneqq 
+\left\{ v \in V \taleche \forall \phi \in Z \quad \phi(v) = 0 \right\}
+$$</p>
+<p>La definizione può anche essere riscritta in termini dei $\Kernel \phi$ </p>
+<p>$$
+\begin{aligned}
+	&= \bigcap_{\phi \in Z} \left\{ v \in V \taleche \phi(v) = 0 \right\} \\
+	&= \bigcap_{\phi \in Z} \Kernel \phi
+\end{aligned}
+$$</p>
+<h4 id="propriet-random">Proprietà Random</h4>
+<ul>
+<li>$\phi = 0 \implies \text{Ker} \, \phi = V$</li>
+<li>$\phi \neq 0 \implies \dim \text{Ker} \, \phi = n - 1$</li>
+</ul>
+<p>...</p>
+<h2 id="applicazione-lineare-trasposta-di-nodisp-buffer-71-">Applicazione lineare trasposta di $f$</h2>
+<p>Data un&#39;applicazione lineare $f : V \to W$ possiamo definire l&#39;applicazione trasposta $f^t : W^* \to V^*$</p>
+<p>$$ f^t(\psi) \coloneqq \psi \circ f $$</p>
+<p>Mostriamo ora che rispetta la composizione di applicazioni lineari in modo controvariante.</p>
+<p>$$
+\begin{gathered}
+	V \xrightarrow{f} W \xrightarrow{g} Z \\
+	V \xrightarrow{ g \compose f } Z
+\end{gathered}
+$$</p>
+<p>Ed infatti vediamo che $(g \compose f)^t$ è la stessa cosa di $g^t \compose f^t$.</p>
+<p>$$
+\begin{gathered}
+	V^* \xleftarrow{f^t} W^* \xleftarrow{g^t} Z^* \\
+	V^* \xleftarrow{ (g \compose f)^t } Z^*
+\end{gathered}
+$$</p>
+<p>Possiamo ricavare l&#39;equivalente della relazione $\dim V = \dim \Kernel f + \dim \text{Im } f$.</p>
+<p>$$ \dim W^* = \dim \Kernel f^t + \dim \text{Im } f^t $$</p>
+<p>$$ \text{Ker} f^t = \left\{ \psi \in W^* \taleche \forall v \in V \quad \psi(f(v)) = 0 \right\} = \text{Ann}(\Image f) $$</p>
+<p>$$
+\begin{aligned}
+	\dim \Kernel f^t
+	&= \dim \text{Ann} (\Image f) = \\
+	&= \dim V - \dim \Image f = \dim \Kernel f
+\end{aligned}
+$$</p>
+<p>$$
+\begin{aligned}
+	\dim W^* 
+	&= \dim \text{Ann}(\Image f) + \dim \Image f^t = \\
+	&= (\dim W - \dim \Image f) + \dim \Image f^t \\
+	&\implies \dim \Image f = \dim \Image f^t
+\end{aligned}
+$$</p>
+<p>Ora se osserviamo i seguenti diagrammi che commutano possiamo congetturare che $B = A^t$.</p>
+<p>$$
+\begin{array}{lllllll}
+	
+	V_\mathscr{B} & \xrightarrow{f} & W_\mathscr{D} 
+	& &
+	V^*_\mathscr{B^*} & \xleftarrow{f^t} & W^*_\mathscr{D^*} \\ \\
+	
+	\downarrow \scriptsize \text{[ ]}_\mathscr{B} & & \downarrow \scriptsize \text{[ ]}_\mathscr{D} 
+	& \quad &
+	\downarrow \scriptsize \text{[ ]}_\mathscr{B^*} & & \downarrow \scriptsize \text{[ ]}_\mathscr{D^*} \\ \\
+	
+	\KK^n & \xrightarrow[A]{} & \KK^m
+	& &
+	\KK^n & \xleftarrow[B]{} & \KK^m \\
+
+\end{array}
+$$</p>
+<p>Possiamo inoltre vedere che $\dim \Image f = \dim \Image f^t \implies \text{rango} A = \text{rango} A^t$.</p>
+<p>$$
+\begin{array}{lll}
+	
+	V_\mathscr{B} & \xrightarrow{\varphi_B} & V^*_\mathscr{B^*} \\ \\
+	
+	\downarrow & & \downarrow \\ \\
+	
+	\KK^n_\mathscr{C} & \xrightarrow{\square^t} & M_\mathscr{C^*}(1, n, \KK) \\
+	v & \longmapsto & v^t \\
+
+\end{array}
+$$</p>
 
 
 	<script
@@ -200,7 +288,11 @@ Aggiungendo ora la condizione che $\phi \in \text{Ann}(Z) \implies \phi(v_j) = 0
 			macros: {
 				'\\KK': '\\mathbb{K}',
 				'\\qed': '\\square',
-				'\\dim': '\\text{dim} \\,'
+				'\\dim': '\\text{dim} \\,',
+				'\\Kernel': '\\text{Ker} \\,',
+				'\\Image': '\\text{Im} \\,',
+				'\\taleche': '\\; | \\;',
+				'\\compose': '\\, \\circ \\,'
 			}
 		});
 	</script>

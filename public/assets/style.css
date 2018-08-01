@@ -33,62 +33,43 @@ body {
 h1 {
 	font-size: 2.25rem;
 	
-	margin: 3rem 0 0;
+	margin: 2rem 0 0 0;
 	padding: 0;
 }
+
 h2 {
 	font-size: 1.75rem;
 	
-	margin: 2rem 0 0;
+	margin: 1.5rem 0 0 0;
 	padding: 0;
 }
+
 h3 {
-	font-size: 1.5rem;
+	font-size: 1.25rem;
 	
-	margin: 1rem 0 0;
-	padding: 0;
+	margin: 1rem 0 0 0;
+	padding: 0 0 0 0;
 }
+
 h4 {
 	font-size: 1.0rem;
 	
-	margin: 1rem 0 0;
-	padding: 0;
+	margin: 0.5rem 0 0 0;
+	padding: 0 0 0 0;
 }
-
-/*
-h1, h2, h3, h4 {
-	position: relative;
-}
-
-h1::before, h2::before, h3::before, h4::before {
-	position: absolute;
-	right: calc(100%);
-	padding-right: 0.5em;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	font-size: 83%;
-	font-family: 'Times';
-	transform: translate(0, -7%);
-}
-
-h1::before {
-	content: '§';
-}
-h2::before {
-	content: '§§';
-}
-h3::before {
-	content: '§§§';
-}
-h4::before {
-	content: '§§§§';
-} */
 
 h1 + h2,
 h2 + h3,
 h3 + h4 {
 	margin-top: 0.5rem;
+}
+
+h1 + p, h2 + p {
+	margin-top: 0.5rem;
+}
+
+h3 + p, h4 + p {
+	margin-top: 1rem;	
 }
 
 p, li {
@@ -101,6 +82,7 @@ p, li {
 	hyphens: auto;
 }
 
+/* Decreases default long-listitem paragraph margin spacing */
 li p {
 	margin: 0.3rem 0;
 }
@@ -135,10 +117,6 @@ pre code:not(.hljs) {
 ol {
 	list-style-type: lower-roman;
 }
-/* 
-li {
-	text-align: left;
-} */
 
 /* Pretty Blockquote & HR Line Separator */
 
@@ -239,15 +217,19 @@ img:hover {
 	padding-bottom: 0.25rem;
 }
 
+/* For a better Mobile Device experience */
+
 @media only screen 
   and (max-device-width: 568px)
   and (-webkit-min-device-pixel-ratio: 2) {
-
+	
+	/*
 	.katex-display {
 		--extra-margin: 1.5rem;
 		width: calc(100vw - 2 * (2rem - var(--extra-margin)));
 		transform: translate(calc(var(--extra-margin) * -1), 0);
 	}
+	*/
 
 	ul, ol {
 		padding-left: 0;
