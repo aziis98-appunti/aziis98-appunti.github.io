@@ -202,8 +202,31 @@ $$</p>
 <li>$\phi = 0 \implies \text{Ker} \, \phi = V$</li>
 <li>$\phi \neq 0 \implies \dim \text{Ker} \, \phi = n - 1$</li>
 </ul>
-<p>...</p>
-<h2 id="applicazione-lineare-trasposta-di-nodisp-buffer-71-">Applicazione lineare trasposta di $f$</h2>
+<h2 id="relazione-tra-nodisp-buffer-71-e-nodisp-buffer-72-">Relazione tra $\text{Ann}$ e $\text{Null}$</h2>
+<blockquote>
+<p><strong>TODO.</strong> 
+Dimostrare $ \text{Null}(\text{Ann}(W)) = W $ e $ \varphi^{-1}(\text{Ann}(\text{Ann}(W))) = \text{Null}(\text{Ann}(W)) $</p>
+</blockquote>
+<h2 id="biduale">Biduale</h2>
+<p>$$ V \rightsquigarrow \underset{=\text{Hom}\left(V, \KK\right)}{V^*} \rightsquigarrow \underset{=\text{Hom}\left(V^*, \KK\right)}{V^{**}} $$</p>
+<p>Il <strong>biduale</strong> è semplicemente il duale del duale. Vediamo ora il comportamento della base del biduale.</p>
+<p>$$
+\begin{array}{ccccc}
+	V & \xrightarrow{ \normalsize \varphi_\mathscr{B} } & V^* & \xrightarrow{ \normalsize \varphi_{\mathscr{B}^*} } & V^{**} \\
+	\mathscr{B} & \rightsquigarrow & \mathscr{B}^* & \rightsquigarrow & \mathscr{B}^{**}
+\end{array}
+$$</p>
+<p>$$ 
+V \xrightarrow{ \normalsize \varphi_{\mathscr{B}^*} \compose \varphi_\mathscr{B} } V^{**}
+$$</p>
+<p><strong>Prop.</strong> Una cosa insolita che accade è che $\varphi = \varphi_{\mathscr{B}^*} \compose \varphi_\mathscr{B}$ non dipende dalla scelta della base $\mathscr{B}$ e quindi $\varphi$ è un <strong>isomorfismo canonico</strong> tra $V$ e $V^{**}$ (isomorfismo che invece non è canonico nel caso da $V$ a $V^*$)</p>
+<p><strong>Dim.</strong></p>
+<p>$$ \varphi : V \to V^{**} = \text{Hom}(V^*, \KK) $$
+$$ \varphi(v) = \varphi_v $$</p>
+<p>dove $\varphi_v : V^* \to \KK$</p>
+<p>$$ \psi \in V^* \mapsto \varphi_v(\psi) \coloneqq \psi(v) $$</p>
+<p>e vediamo che questa definizione sembra funzionare, bisogna ora dimostrare che è lineare in $v$...</p>
+<h2 id="applicazione-lineare-trasposta-di-nodisp-buffer-84-">Applicazione lineare trasposta di $f$</h2>
 <p>Data un&#39;applicazione lineare $f : V \to W$ possiamo definire l&#39;applicazione trasposta $f^t : W^* \to V^*$</p>
 <p>$$ f^t(\psi) \coloneqq \psi \circ f $$</p>
 <p>Mostriamo ora che rispetta la composizione di applicazioni lineari in modo controvariante.</p>
