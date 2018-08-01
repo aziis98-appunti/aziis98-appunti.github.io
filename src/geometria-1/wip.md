@@ -220,7 +220,40 @@ $$
 - $\phi = 0 \implies \text{Ker} \, \phi = V$
 - $\phi \neq 0 \implies \dim \text{Ker} \, \phi = n - 1$
 
-...
+## Relazione tra $\text{Ann}$ e $\text{Null}$
+
+> **TODO.** 
+> Dimostrare $ \text{Null}(\text{Ann}(W)) = W $ e $ \varphi^{-1}(\text{Ann}(\text{Ann}(W))) = \text{Null}(\text{Ann}(W)) $
+
+## Biduale
+
+$$ V \rightsquigarrow \underset{=\text{Hom}\left(V, \KK\right)}{V^*} \rightsquigarrow \underset{=\text{Hom}\left(V^*, \KK\right)}{V^{**}} $$
+
+Il **biduale** è semplicemente il duale del duale. Vediamo ora il comportamento della base del biduale.
+
+$$
+\begin{array}{ccccc}
+	V & \xrightarrow{ \normalsize \varphi_\mathscr{B} } & V^* & \xrightarrow{ \normalsize \varphi_{\mathscr{B}^*} } & V^{**} \\
+	\mathscr{B} & \rightsquigarrow & \mathscr{B}^* & \rightsquigarrow & \mathscr{B}^{**}
+\end{array}
+$$
+
+$$ 
+V \xrightarrow{ \normalsize \varphi_{\mathscr{B}^*} \compose \varphi_\mathscr{B} } V^{**}
+$$
+
+**Prop.** Una cosa insolita che accade è che $\varphi = \varphi_{\mathscr{B}^*} \compose \varphi_\mathscr{B}$ non dipende dalla scelta della base $\mathscr{B}$ e quindi $\varphi$ è un **isomorfismo canonico** tra $V$ e $V^{**}$ (isomorfismo che invece non è canonico nel caso da $V$ a $V^*$)
+
+**Dim.**
+
+$$ \varphi : V \to V^{**} = \text{Hom}(V^*, \KK) $$
+$$ \varphi(v) = \varphi_v $$
+
+dove $\varphi_v : V^* \to \KK$
+
+$$ \psi \in V^* \mapsto \varphi_v(\psi) \coloneqq \psi(v) $$
+
+e vediamo che questa definizione sembra funzionare, bisogna ora dimostrare che è lineare in $v$...
 
 ## Applicazione lineare trasposta di $f$
 
