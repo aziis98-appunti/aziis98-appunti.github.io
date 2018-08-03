@@ -255,6 +255,11 @@ $$ \psi \in V^* \mapsto \varphi_v(\psi) \coloneqq \psi(v) $$
 
 e vediamo che questa definizione sembra funzionare, bisogna ora dimostrare che è lineare in $v$...
 
+$$ e^{i \pi} = -1 $$
+
+
+
+
 ## Applicazione lineare trasposta di $f$
 
 Data un'applicazione lineare $f : V \to W$ possiamo definire l'applicazione trasposta $f^t : W^* \to V^*$
@@ -336,3 +341,21 @@ $$
 
 \end{array}
 $$
+
+<script>
+
+// Fix for correctly remembering scrollPos
+
+const scrollPos = localStorage.getItem("mathematics.scroll");
+
+if (scrollPos) {
+	setTimeout(() => {
+			window.scrollTo(0, parseInt(scrollPos));
+	}, 1000);
+}
+
+setInterval(() => {
+	localStorage.setItem("mathematics.scroll", window.pageYOffset);
+}, 1000);
+
+</script>

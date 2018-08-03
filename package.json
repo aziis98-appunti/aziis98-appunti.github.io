@@ -5,14 +5,14 @@
   "main": "gulpfile.js",
   "scripts": {
     "build": "gulp",
-    "watch": "gulp watch",
-    "server": "live-server --no-browser --wait=1 ./public/"
+    "start:dev": "gulp dev"
   },
   "author": "aziis98 <antonio.delucreziis@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "gulp": "^4.0.0",
     "gulp-changed": "^3.2.0",
+    "gulp-connect": "^5.5.0",
     "gulp-markdown": "^2.0.1",
     "handlebars": "^4.0.11",
     "highlight.js": "^9.12.0",
