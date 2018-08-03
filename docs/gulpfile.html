@@ -54,12 +54,10 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> through2 = <span class="hljs-built_in">require</span>(<span class="hljs-string">'through2'</span>);
-
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">const</span> through2 = <span class="hljs-built_in">require</span>(<span class="hljs-string">'through2'</span>);
 <span class="hljs-keyword">const</span> customMarkdown = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./customMR'</span>);
-
 <span class="hljs-keyword">const</span> hbs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'handlebars'</span>);
-
 <span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);</pre></div></div>
             
         </li>
@@ -71,19 +69,6 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <p>Move this and the relative code to a new module</p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-4">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-4">&#182;</a>
-              </div>
               <p>Uses Handlebars to compile my template html page</p>
 
             </div>
@@ -93,11 +78,11 @@
         </li>
         
         
-        <li id="section-5">
+        <li id="section-4">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
+                <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
               <p>Custom gulp plugin for rendering my markdown files</p>
 
@@ -110,11 +95,11 @@
         </li>
         
         
-        <li id="section-6">
+        <li id="section-5">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
+                <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
               <p>Gets the contents of the current Vinyl file</p>
 
@@ -125,11 +110,11 @@
         </li>
         
         
-        <li id="section-7">
+        <li id="section-6">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-7">&#182;</a>
+                <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
               <p>Changes the extension of the file to “.html”</p>
 
@@ -140,11 +125,11 @@
         </li>
         
         
-        <li id="section-8">
+        <li id="section-7">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-8">&#182;</a>
+                <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
               <p>Renders the markdown with my custom markdown
 renderer and changes the contents of the Vinyl file</p>
@@ -156,11 +141,11 @@ renderer and changes the contents of the Vinyl file</p>
         </li>
         
         
-        <li id="section-9">
+        <li id="section-8">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-9">&#182;</a>
+                <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
               <p>Renders the handlebars template</p>
 
@@ -171,11 +156,11 @@ renderer and changes the contents of the Vinyl file</p>
         </li>
         
         
-        <li id="section-10">
+        <li id="section-9">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-10">&#182;</a>
+                <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
               <p>The title of the page will be the startCase
 of the markdown file’s name. For example
@@ -189,13 +174,13 @@ a file named “spazio-duale.md” will be titled
         </li>
         
         
-        <li id="section-11">
+        <li id="section-10">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-11">&#182;</a>
+                <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
-              <p>Renders the markdonw source file using my custom renderer
+              <p>Renders the markdown source file using my custom renderer
 that extracts all the latex fragments to remove the interferences
 and then reinserts them after the call to the marked package.</p>
 
@@ -208,11 +193,11 @@ and then reinserts them after the call to the marked package.</p>
         </li>
         
         
-        <li id="section-12">
+        <li id="section-11">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-12">&#182;</a>
+                <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
               <p>Calls the gulp callback</p>
 
@@ -225,11 +210,11 @@ and then reinserts them after the call to the marked package.</p>
         </li>
         
         
-        <li id="section-13">
+        <li id="section-12">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-13">&#182;</a>
+                <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
               <p>Internal task for rendering the markdown files
 with my custom renderer.</p>
@@ -247,13 +232,13 @@ with my custom renderer.</p>
         </li>
         
         
-        <li id="section-14">
+        <li id="section-13">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-14">&#182;</a>
+                <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
-              <p>Internal task for moveing my assets files to
+              <p>Internal task for moving my assets files to
 the output directory.</p>
 
             </div>
@@ -268,14 +253,14 @@ the output directory.</p>
         </li>
         
         
-        <li id="section-15">
+        <li id="section-14">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-15">&#182;</a>
+                <a class="pilcrow" href="#section-14">&#182;</a>
               </div>
-              <p>Internal task for moveing and rendering all the
-files from the src folder to the output directory.</p>
+              <p>Internal task for moving and rendering all the
+source files to the output directory.</p>
 
             </div>
             
@@ -284,13 +269,13 @@ files from the src folder to the output directory.</p>
         </li>
         
         
-        <li id="section-16">
+        <li id="section-15">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-16">&#182;</a>
+                <a class="pilcrow" href="#section-15">&#182;</a>
               </div>
-              <p>Moves static files from the highlight.js and Katex
+              <p>Moves static dependency files from the highlight.js and Katex
 packages in the output directory.</p>
 
             </div>
@@ -306,11 +291,11 @@ packages in the output directory.</p>
         </li>
         
         
-        <li id="section-17">
+        <li id="section-16">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-17">&#182;</a>
+                <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
               <p>Internal task for watching source files</p>
 
@@ -323,11 +308,11 @@ packages in the output directory.</p>
         </li>
         
         
-        <li id="section-18">
+        <li id="section-17">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-18">&#182;</a>
+                <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
               <p>Internal task for starting the livereload server</p>
 
@@ -344,27 +329,28 @@ packages in the output directory.</p>
         </li>
         
         
-        <li id="section-19">
+        <li id="section-18">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-19">&#182;</a>
+                <a class="pilcrow" href="#section-18">&#182;</a>
               </div>
               <h2 id="task-default">Task - Default</h2>
 <p>This is the main task used to build all the project.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>exports.default = parallel(moveStatics, generateFiles);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>
+exports.default = parallel(moveStatics, generateFiles);</pre></div></div>
             
         </li>
         
         
-        <li id="section-20">
+        <li id="section-19">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-20">&#182;</a>
+                <a class="pilcrow" href="#section-19">&#182;</a>
               </div>
               <h2 id="task-development-server">Task - Development Server</h2>
 <p>Starts up the server, does a first preparation build and 
@@ -372,7 +358,8 @@ the starts watching for file changes in the src directory</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>exports.dev = parallel(startServer, series(exports.default, watchSrc));</pre></div></div>
+            <div class="content"><div class='highlight'><pre>
+exports.dev = parallel(startServer, series(exports.default, watchSrc));</pre></div></div>
             
         </li>
         

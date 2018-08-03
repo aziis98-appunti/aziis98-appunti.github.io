@@ -10,14 +10,11 @@ const DEST_PUBLIC = 'public/';
 const DEST_ASSETS = 'public/assets/';
 
 // Move this and the relative code to a new module
+
 const through2 = require('through2');
-
 const customMarkdown = require('./customMR');
-
 const hbs = require('handlebars');
-
 const fs = require('fs');
-// Move this and the relative code to a new module
 
 // Uses Handlebars to compile my template html page
 const pageTemplate = hbs.compile(fs.readFileSync(__dirname + '/_page.hbs', 'utf8'));
@@ -42,7 +39,7 @@ function renderPage(file, _, cb) {
 				// a file named "spazio-duale.md" will be titled
 				// "Spazio Duale"
 				title: startCase(file.stem),
-				// Renders the markdonw source file using my custom renderer
+				// Renders the markdown source file using my custom renderer
 				// that extracts all the latex fragments to remove the interferences
 				// and then reinserts them after the call to the marked package.
 				body: customMarkdown(markdownSource),
@@ -64,7 +61,7 @@ function renderPages() {
 		.pipe(connect.reload());
 }
 
-// Internal task for moveing my assets files to
+// Internal task for moving my assets files to
 // the output directory.
 function moveAssets() {
 	return src([ 'src/_assets/**/*' ])
@@ -73,11 +70,11 @@ function moveAssets() {
 		.pipe(connect.reload());
 }
 
-// Internal task for moveing and rendering all the
-// files from the src folder to the output directory.
+// Internal task for moving and rendering all the
+// source files to the output directory.
 const generateFiles = parallel(renderPages, moveAssets)
 
-// Moves static files from the highlight.js and Katex
+// Moves static dependency files from the highlight.js and Katex
 // packages in the output directory.
 function moveStatics() {
 	return src([ 
@@ -103,11 +100,13 @@ function startServer() {
 
 // ## Task - Default
 // This is the main task used to build all the project.
+
 exports.default = parallel(moveStatics, generateFiles);
 
 // ## Task - Development Server
 // Starts up the server, does a first preparation build and 
 // the starts watching for file changes in the src directory
+
 exports.dev = parallel(startServer, series(exports.default, watchSrc));
 
 
