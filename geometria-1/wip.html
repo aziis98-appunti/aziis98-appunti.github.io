@@ -226,6 +226,7 @@ $$ \varphi(v) = \varphi_v $$</p>
 <p>dove $\varphi_v : V^* \to \KK$</p>
 <p>$$ \psi \in V^* \mapsto \varphi_v(\psi) \coloneqq \psi(v) $$</p>
 <p>e vediamo che questa definizione sembra funzionare, bisogna ora dimostrare che è lineare in $v$...</p>
+<p>$$ e^{i \pi} = -1 $$</p>
 <h2 id="applicazione-lineare-trasposta-di-nodisp-buffer-84-">Applicazione lineare trasposta di $f$</h2>
 <p>Data un&#39;applicazione lineare $f : V \to W$ possiamo definire l&#39;applicazione trasposta $f^t : W^* \to V^*$</p>
 <p>$$ f^t(\psi) \coloneqq \psi \circ f $$</p>
@@ -292,7 +293,23 @@ $$</p>
 
 \end{array}
 $$</p>
+<script>
 
+// Fix for correctly remembering scrollPos
+
+const scrollPos = localStorage.getItem("mathematics.scroll");
+
+if (scrollPos) {
+    setTimeout(() => {
+            window.scrollTo(0, parseInt(scrollPos));
+    }, 1000);
+}
+
+setInterval(() => {
+    localStorage.setItem("mathematics.scroll", window.pageYOffset);
+}, 1000);
+
+</script>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js"
