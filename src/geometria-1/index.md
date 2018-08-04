@@ -10,9 +10,11 @@ Trascrizione degli appunti di **Geometria 1** dell'anno 2017/2018.
 
 ## Indice
 
-- (Non esiste ancora) [Insiemistica](./insiemistica.html)
-- (In corso, vd. WIP) [Spazio Duale](./spazio-duale.html)
-- (Non esiste ancora) [Geometria Affine](./geometria-affine.html)
+- [Spazio Duale](./spazio-duale.html)
+- [Endomorfismi](./endomorfismi.html)
+	(In corso di scrittura, vd. WIP)
+
+---
 
 ## WIP
 
