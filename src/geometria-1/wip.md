@@ -86,6 +86,8 @@ $\qed$
 
 In generale $\forall \mathscr{B}$ base di $V$, $\mathscr{B}^*$ è una base di $V^*$ e quindi hanno la _stessa dimensione_ e si può definire un isomorfismo $\varphi_\mathscr{B} : V \to V^*$ tale che $$\varphi_\mathscr{B} (v_i) = v^i$$
 
+---
+
 ## Annullatore
 
 Sia $Z \subseteq V$ un sottospazio di $V$ con $\dim V = n$. L'**annullatore** di $Z$ è definito nel seguente modo.
@@ -215,15 +217,16 @@ $$
 \end{aligned}
 $$
 
-#### Proprietà Random
+### TODO: Proprietà Random
 
 - $\phi = 0 \implies \text{Ker} \, \phi = V$
 - $\phi \neq 0 \implies \dim \text{Ker} \, \phi = n - 1$
 
-## Relazione tra $\text{Ann}$ e $\text{Null}$
+## TODO: Relazione tra $\text{Ann}$ e $\text{Null}$
 
-> **TODO.** 
-> Dimostrare $ \text{Null}(\text{Ann}(W)) = W $ e $ \varphi^{-1}(\text{Ann}(\text{Ann}(W))) = \text{Null}(\text{Ann}(W)) $
+> $$ \text{Null}(\text{Ann}(W)) = W $$
+
+---
 
 ## Biduale
 
@@ -247,18 +250,98 @@ $$
 **Dim.**
 
 $$ \varphi : V \to V^{**} = \text{Hom}(V^*, \KK) $$
-$$ \varphi(v) = \varphi_v $$
+$$ \varphi(v) \coloneqq \varphi_v $$
 
 dove $\varphi_v : V^* \to \KK$
 
-$$ \psi \in V^* \mapsto \varphi_v(\psi) \coloneqq \psi(v) $$
+<!-- TODO: Forse questa si può scrivere con una notazione meno criptica -->
 
-e vediamo che questa definizione sembra funzionare, bisogna ora dimostrare che è lineare in $v$...
+$$ V^* \ni \psi \mapsto \varphi_v(\psi) \coloneqq \psi(v) $$
 
-$$ e^{i \pi} = -1 $$
+e vediamo che questa definizione sembra funzionare, bisogna ora dimostrare che $\phi$ è un isomorfismo, serve quindi dimostrare le seguenti proposizioni
 
+1. $\forall v  \quad \varphi_v : V^* \to \KK$ è lineare
+2. $\varphi$ è lineare
+3. $\varphi$ è un isomorfismo (basta che sia iniettiva)
 
+**Dim.**
 
+1. Per dimostrare che $\varphi_v$ è lineare bisogna mostrare le seguenti proprietà delle applicazioni lineari
+	1. $\varphi_v(\psi_1 + \psi_2) = \varphi_v(\psi_1) + \varphi_v(\psi_2) \quad \forall ...$
+		
+	**Dim.**
+	$$
+	\begin{aligned}
+		\varphi_v(\psi_1 + \psi_2)
+		&= (\psi_1 + \psi_2)(v)	\\
+		&= \psi_1(v) + \psi_2(v) \\
+		&= \varphi_v(\psi_1) + \varphi_v(\psi_2)
+	\end{aligned}
+	$$
+	$\qed$
+
+	2. $\varphi_v(\lambda \psi) = \lambda \varphi_v(\psi) \quad \forall ...$
+	
+	**Dim.**
+	$$
+	\varphi_v(\lambda \psi)
+	= (\lambda \psi)(v)
+	= \lambda \psi(v)
+	= \lambda \varphi_v(\psi)
+	$$
+	$\qed$
+
+2. Le stesse proprietà vanno mostrate anche per $\varphi$
+	1. $\varphi(v_1 + v_2) = \varphi(v_1) + \varphi(v_2) \quad \forall ...$
+
+	**Dim.**
+	$$
+	\begin{aligned}
+		\varphi(v_1 + v_2)(\psi)
+		&= \psi(v_1 + v_2) \\
+		&= \psi(v_1) + \psi(v_2) \\
+		&= \varphi(v_1)(\psi) + \varphi(v_2)(\psi) \\
+		&= (\varphi(v_1) + \varphi(v_2))(\psi)
+	\end{aligned}
+	$$
+	$\qed$
+
+	2. $\varphi(\lambda v) = \lambda \varphi(v) \quad \forall ...$
+	**Dim.**
+	$$
+	\begin{aligned}
+		\varphi(\lambda v)(\psi)
+		&= \psi(\lambda v) \\
+		&= \lambda \psi(v) \\
+		&= \lambda \varphi(v)(\psi) \\
+		&= (\lambda \varphi(v))(\psi)
+	\end{aligned}
+	$$
+	$\qed$
+
+3. Poiché già sappiamo che le dimensioni di $V$ e $V^{**}$ sono le stesse ci basta mostrare che $\varphi$ sia iniettiva per dimostrare che sia un _isomorfismo_.
+
+	**Dim.**
+	Dire che $\varphi$ è iniettiva è la stessa cosa di mostrare che $\Kernel \varphi = \{ 0 \}$
+	$$
+	\begin{aligned}
+		\Kernel \varphi 
+		&= \{ v \in V \taleche \varphi_v = 0 \} \\
+		&= \{ v \in V \taleche \forall \psi \in V^* \quad \psi(v) = 0 \} \\
+		&\implies \Kernel \varphi = 0
+	\end{aligned}
+	$$
+	<!-- TODO: Spiegare meglio questa cosa che è un po' contorta - il perogni fa buggare un po' -->
+	Infatti se $v \neq 0$ basta costruire $\psi \in V^*$ tale che $\psi(v) \neq 0$ (che quindi compensa per quei $\psi$ che invece sono zero non solo $0$)
+	$$ \{ \underbrace{v_1}_{=v \neq 0}, \dots, v_n \} $$
+	$$ v^1(v) = 1 \neq 0 $$
+	$\qed$
+
+### TODO: Dimostrazione senza nome
+
+> $$ \varphi^{-1}(\text{Ann}(\text{Ann}(W))) = \text{Null}(\text{Ann}(W)) $$
+
+---
 
 ## Applicazione lineare trasposta di $f$
 
