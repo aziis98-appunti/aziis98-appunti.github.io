@@ -26,6 +26,8 @@ body {
 	margin: 0;
 	
 	font-family: 'Computer Modern Serif';
+
+	overflow-x: hidden;
 }
 
 /* Headings */
@@ -123,15 +125,15 @@ ol {
 hr {
 	border: none;
 	height: 1px;
-	margin: 4rem auto;
+	margin: 3.5rem auto;
 	width: 50%;
-	background: #d0d0d0;
+	background: #ccc;
 }
 
 blockquote {
 	margin: 1rem 0 1rem;
 	padding: 0.25rem 0.5rem;
-	border-left: 0.25rem solid #d0d0d0;
+	border-left: 0.25rem solid #ccc;
 	background: #f6f6f6;
 }
 
@@ -169,20 +171,15 @@ Images occupy at most half textwidth and when
 
 img {
 	display: block;
-	margin: auto;
-	max-width: 45%;
-	max-height: 45%;
+	margin: 1rem auto;
+
+	width: 40vmin;
+
 	border: 2px solid transparent;
 	box-sizing: content-box;
 	
-	transition: 
-	transform 150ms ease-out, 
+	transition: transform 150ms ease-out, 
 	border-color 50ms linear;
-}
-
-img:hover {
-	transform: scale(2);
-	border-color: black;
 }
 
 /* Custom Scrollbar for some elements */
@@ -218,19 +215,73 @@ img:hover {
 	padding-bottom: 0.25rem;
 }
 
-/* For a better Mobile Device experience */
+p {
+	position: relative;
+}
 
+span.dotted {
+	border: 1px dashed #4169e188;
+	transition: border-color 50ms ease-out;
+}
+
+span.dotted:hover {
+	border-color: #4169e1FF;
+}
+
+.tip {
+	position: absolute;
+	left: -0.5rem;
+	bottom: calc(100%);
+	background: #f0f0f0EE;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+
+	transition: opacity 75ms ease-out;
+
+	padding: 0.25rem 0.5rem;
+
+	opacity: 0.0;
+}
+
+span:hover + .tip {
+	opacity: 1.0;
+}
+
+/* For a better Mobile & Desktop Device experience */
+
+/* Little extra feature on the Desktop */
+@media only screen 
+  and (min-device-width: 768px) {
+	
+	img:hover {
+		transform: scale(2.0);
+		border-color: black;
+	}
+
+}
+
+/* For landscape phones only */
+@media only screen
+  and (max-device-width: 768px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+
+	img {
+		width: 66%;
+	}
+
+}
+
+/* Full-width image on portrait mobile */
 @media only screen 
   and (max-device-width: 568px)
   and (-webkit-min-device-pixel-ratio: 2) {
 	
-	/*
-	.katex-display {
-		--extra-margin: 1.5rem;
-		width: calc(100vw - 2 * (2rem - var(--extra-margin)));
-		transform: translate(calc(var(--extra-margin) * -1), 0);
+	img {
+		transform: translate(calc(-2rem - 2px), 0);
+		width: calc(100vw + 1px);
+		min-width: unset;
 	}
-	*/
 
 	ul, ol {
 		padding-left: 0;

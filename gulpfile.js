@@ -94,6 +94,7 @@ function startServer() {
 	connect.server({
 		root: 'public',
 		port: 8080,
+		host: '0.0.0.0',
 		livereload: true,
 	});
 }
