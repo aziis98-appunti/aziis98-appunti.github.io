@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-	<meta charset="UTF-8">
-	<meta
+	<head>
+		<meta charset="UTF-8">
+		<meta
 		name="viewport"
 		content="width=device-width, user-scalable=no, initial-scale=0.75">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-	<title>Wip</title>
-
-	<link rel="stylesheet" href="/assets/katex.min.css">
-	<link rel="stylesheet" href="/assets/tomorrow.css">
-	
-	<link rel="stylesheet" href="/assets/fonts/cmun-serif.css">
-	
-	<link rel="stylesheet" href="/assets/style.css">
-</head>
-<body>
-	<center>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Wip</title>
+		<link rel="icon" type="image/png" href="/assets/icon@small.png" />
+		<link rel="stylesheet" href="/assets/katex.min.css">
+		<link rel="stylesheet" href="/assets/tomorrow.css">
+		
+		<link rel="stylesheet" href="/assets/fonts/cmun-serif.css">
+		
+		<link rel="stylesheet" href="/assets/style.css">
+	</head>
+	<body>
+		<center>
     <a 
         href="/geometria-1/index.html"
         title="Geometria 1">Indietro</a>
@@ -59,8 +58,8 @@ $$</p>
 <p>$$
 B \sim A \iff \exists P \in \text{GL}(n, \KK): \; B = P A P^{-1}
 $$</p>
-<p>Ciò è equivalente a dire che il seguente diagramma commuta</p>
-<p><img src="/assets/geometria-1/endomorfismi-001.jpg" alt="Latex in arrivo"> </p>
+<p>Ciò è equivalente a dire che il seguente diagramma commuta
+<img src="/assets/geometria-1/endomorfismi-001.jpg" alt="Latex in arrivo"> </p>
 <hr>
 <p>In generale possiamo ricondurre lo studio nel caso di $V$ generico a quello in $\KK^n$ nel seguente modo mostrato nel diagramma</p>
 <p><img src="/assets/geometria-1/endomorfismi-002.jpg" alt="Latex in arrivo"></p>
@@ -91,25 +90,97 @@ $$</p>
 <span class="tip">Matrice 1x1 con unico valore $a$</span>
 questo ci da solo due possibili classi di equivalenza, con $a = 0$ e con $a \neq 0$.</p>
 <hr>
-<p>Siano $f \in \text{End}(V)$ e $\lambda \in \KK$</p>
 <h2 id="autovalori">Autovalori</h2>
-<p>...</p>
-<h3 id="spettro">Spettro</h3>
-<p>...</p>
-<h3 id="autospazio">Autospazio</h3>
-<p><strong>Def.</strong>
-$$
-V_\lambda \coloneqq V_\lambda(f) \coloneqq \text{Ker} (f - \lambda \text{id}_V)
+<p>Sia $f \in \text{End}(V)$ </p>
+<h4 id="autovalore">Autovalore</h4>
+<p>$\lambda \in \KK$ è un <strong>autovalore</strong> di $f$ se</p>
+<p>$$ \dim \text{Ker}(f - \lambda \, \text{id}_V) > 0 $$</p>
+<p>equivalentemente </p>
+<p>$$\lambda \text{ è un autovalore } \iff \exists v \neq 0 : f(v) = \lambda v $$</p>
+<h4 id="spettro">Spettro</h4>
+<p>$$
+\text{Spettro}(f) = \{ \lambda \in \KK \taleche \lambda \text{ è un autovalore di } f \}
 $$</p>
+<h4 id="autospazio">Autospazio</h4>
+<p>Un <strong>autospazio</strong> di $f$ relativo ad un autovalore $\lambda \in \text{Spettro}(f)$</p>
+<p>$$
+V_\lambda \coloneqq V_\lambda(f) \coloneqq \text{Ker} (f - \lambda \, \text{id}_V)
+$$</p>
+<p>Inoltre i $v \in V_\lambda$ con $v \neq 0$ sono detti <strong>autovettori</strong> di $f$ relativi all&#39;autovalore $\lambda$.</p>
+<h4 id="molteplicit-geometrica">Molteplicità Geometrica</h4>
+<p>$$
+0 < d_\lambda \coloneqq \dim V_\lambda(f)
+$$</p>
+<p>E&#39; detta la <strong>molteplicità geometrica</strong> dell&#39;autovalore $\lambda$ di $f$.</p>
+<p><strong>Oss.</strong> Lo spettro può essere vuoto, basti pensare ad esempio alle rotazioni in $\mathbb{R}^2$</p>
+<p><strong>Prop.</strong> Siano $f, g \in \text{End}(V)$. Se $g \sim f \implies$</p>
+<ol>
+<li>$\text{Spettro}(g) = \text{Spettro}(f)$</li>
+<li>Se $\lambda \in \text{Spettro}(f) = \text{Spettro}(g) \neq \varnothing \implies d_\lambda(f) = d_\lambda(g)$</li>
+</ol>
+<p><strong>Dim.</strong> </p>
+<ol>
+<li><p>Poiché $g \sim f$ abbiamo che $\exists h \in \text{GL}(V) : g = h \compose f \compose h^{-1} \iff g \compose h = h \compose f$.
+ Sia $\lambda \in \text{Spettro}(f) : \exists v \neq 0 \quad f(v) = \lambda v$.</p>
+<p> $$ (g \compose h)(v) = (h \compose f)(v) = h(\lambda v) = \lambda h (v) $$</p>
+<p> $$ (g \compose h)(v) = g(\underbrace{h(v)}_{w}) = \lambda \underbrace{h (v)}_{w} $$</p>
+<p> $w \neq 0$ poiché $h \in \text{GL}(V)$ e $v \neq 0$</p>
+<p> $$ \implies \text{Spettro}(f) \subseteq \text{Spettro}(g) $$</p>
+<p> Ovvero otteniamo che ogni autovalore di $f$ è anche un autovalore di $g$. Poi semplicemente scambiando i ruoli di $f$ e $g$ otteniamo l&#39;ugualianza</p>
+<p> $$ \implies \text{Spettro}(f) = \text{Spettro}(g) $$</p>
+<p> $\qed$</p>
+</li>
+<li><p>$\lambda \in \text{Spettro}(f)=\text{Spettro}(g)$. Poiché $g \sim f$ abbiamo che $\exists h \in \text{GL}(V) : g = h \compose f \compose h^{-1}$</p>
+<p> $$
+	h(V_\lambda(f)) = V_\lambda(g) 
+	\qquad
+	h(V_\lambda(g)) = V_\lambda(f)
+	$$</p>
+<p> E poiché $h$ è un isomorfismo abbiamo che le dimensioni sono preservate.</p>
+<p> $$
+	\implies \dim V_\lambda(f) = \dim V_\lambda(g)
+	$$</p>
+<blockquote>
+<p>TODO: Non mi ispira molto questa dimostrazione di Benedetti, in futuro aggiungerò dettagli.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="passando-alle-matrici-">Passando alle Matrici...</h3>
+<p>Se $\lambda \in \text{Spettro}(f)$ e $\dim V = n$ possiamo considerare $A = \mathscr{M}_\mathscr{B}^\mathscr{B}(f)$</p>
+<p>$$
+\begin{array}{rcl}
+V_\mathscr{B} & \xrightarrow{f} & V_\mathscr{B} \\
+& &\\
+\text{[ ]}_\mathscr{B} \Big\downarrow \; & & \; \Big\downarrow \; \text{[ ]}_\mathscr{B} \\
+& & \\
+\KK^n & \xrightarrow[A]{} & \KK^n
+\end{array}
+$$ </p>
+<p>intanto possiamo notare subito che $d_\lambda(f) = d_\lambda(A)$ poiché $\mathscr{B}$ è un isomorfismo e preserva la dimensione dell&#39;autospazio $V_\lambda(f)$ quando passa in $\KK^n$. Vogliamo ora mostrare che $\text{Spettro}(f) = \text{Spettro}(A)$</p>
+<p><strong>Dim.</strong></p>
+<p>$$
+v \neq 0: f(v) = \lambda v 
+\quad \rightsquigarrow \quad
+[v]_\mathscr{B} \neq 0: A [v]_\mathscr{B} = \lambda [v]_\mathscr{B}
+$$</p>
+<p>$$
+V_\lambda(A) = \text{Ker}(A - \lambda I_n)
+$$</p>
+<p>$$
+\implies d_\lambda(A) = n - \text{rango}(A - \lambda I_n)
+$$</p>
+<p>...</p>
+<h2 id="forma-di-jordan">Forma di Jordan</h2>
+<p>...</p>
 <div style="height: 300px;"></div>
 
 <script>
 
 // Fix for correctly remembering scrollPos
 
-setTimeout(() => {
-    window.scrollTo(0, 10000);
-}, 1000);
+// setTimeout(() => {
+//     window.scrollTo(0, 10000);
+// }, 1000);
 
 // const scrollPos = localStorage.getItem("mathematics.scroll");
 
@@ -125,30 +196,40 @@ setTimeout(() => {
 
 </script>
 
-	<script
-		src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js"
-		integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm"
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js"
+			integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm"
 		crossorigin="anonymous"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/contrib/auto-render.min.js"
-		integrity="sha384-aGfk5kvhIq5x1x5YdvCp4upKZYnA8ckafviDpmWEKp4afOZEqOli7gqSnh8I6enH"
+		<script
+			src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/contrib/auto-render.min.js"
+			integrity="sha384-aGfk5kvhIq5x1x5YdvCp4upKZYnA8ckafviDpmWEKp4afOZEqOli7gqSnh8I6enH"
 		crossorigin="anonymous"></script>
-	<script>
-		renderMathInElement(document.body, {
-			delimiters: [
-				{left: "$$", right: "$$", display: true},
-				{left: "$", right: "$", display: false},
-			],
-			macros: {
-				'\\KK': '\\mathbb{K}',
-				'\\qed': '\\square',
-				'\\dim': '\\text{dim} \\,',
-				'\\Kernel': '\\text{Ker} \\,',
-				'\\Image': '\\text{Im} \\,',
-				'\\taleche': '\\; | \\;',
-				'\\compose': '\\, \\circ \\,'
-			}
-		});
-	</script>
-</body>
+		<script>
+			// Needed to fix the z-index of images within paragraph.
+			// It looks like that because images are inside sibiling
+			// paragraphs one cannot put then in front of the text
+			// of the sibiling paragraphs.
+			Array.prototype.slice.call(document.querySelectorAll('p'))
+				.filter(it => !!it.querySelector('img'))
+				.forEach(figure => figure.style.zIndex = 1);
+		</script>
+		<script>
+			renderMathInElement(document.body, {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+				],
+				macros: {
+					'\\KK': '\\mathbb{K}',
+					'\\qed': '\\square',
+					'\\dim': '\\text{dim} \\,',
+					'\\Kernel': '\\text{Ker} \\,',
+					'\\Image': '\\text{Im} \\,',
+					'\\taleche': '\\; | \\;',
+					'\\compose': '\\, \\circ \\,'
+				}
+			});
+		</script>
+	</body>
 </html>

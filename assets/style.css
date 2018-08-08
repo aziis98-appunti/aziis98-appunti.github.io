@@ -28,6 +28,8 @@ body {
 	font-family: 'Computer Modern Serif';
 
 	overflow-x: hidden;
+
+	font-variant-ligatures: none;
 }
 
 /* Headings */
@@ -163,25 +165,6 @@ a:hover {
 	background: royalblue;
 }
 
-/* 
-Images occupy at most half textwidth and when
-	hovered with the mouse they scale up for 
-	better viewing.
-*/
-
-img {
-	display: block;
-	margin: 1rem auto;
-
-	width: 40vmin;
-
-	border: 2px solid transparent;
-	box-sizing: content-box;
-	
-	transition: transform 150ms ease-out, 
-	border-color 50ms linear;
-}
-
 /* Custom Scrollbar for some elements */
 
 :not(body):not(html)::-webkit-scrollbar-track
@@ -247,12 +230,35 @@ span:hover + .tip {
 	opacity: 1.0;
 }
 
+/* 
+Images occupy at most half textwidth and when
+	hovered with the mouse they scale up for 
+	better viewing.
+*/
+
+img {
+	display: block;
+	margin: 1rem auto;
+
+	width: 40vmin;
+
+	border: 1.5px solid transparent;
+	box-sizing: content-box;
+	
+	transition: transform 150ms ease-out, 
+				border-color 50ms linear;
+}
+
 /* For a better Mobile & Desktop Device experience */
 
 /* Little extra feature on the Desktop */
 @media only screen 
   and (min-device-width: 768px) {
 	
+	img {
+		z-index: 10;
+	}
+
 	img:hover {
 		transform: scale(2.0);
 		border-color: black;

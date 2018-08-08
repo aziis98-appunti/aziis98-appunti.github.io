@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-	<meta charset="UTF-8">
-	<meta
+	<head>
+		<meta charset="UTF-8">
+		<meta
 		name="viewport"
 		content="width=device-width, user-scalable=no, initial-scale=0.75">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-	<title>Md Test</title>
-
-	<link rel="stylesheet" href="/assets/katex.min.css">
-	<link rel="stylesheet" href="/assets/tomorrow.css">
-	
-	<link rel="stylesheet" href="/assets/fonts/cmun-serif.css">
-	
-	<link rel="stylesheet" href="/assets/style.css">
-</head>
-<body>
-	<h1 id="heading-h1">Heading H1</h1>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Md Test</title>
+		<link rel="icon" type="image/png" href="/assets/icon@small.png" />
+		<link rel="stylesheet" href="/assets/katex.min.css">
+		<link rel="stylesheet" href="/assets/tomorrow.css">
+		
+		<link rel="stylesheet" href="/assets/fonts/cmun-serif.css">
+		
+		<link rel="stylesheet" href="/assets/style.css">
+	</head>
+	<body>
+		<h1 id="heading-h1">Heading H1</h1>
 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti, provident?</p>
 <h2 id="heading-h2">Heading H2</h2>
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum libero omnis velit repellendus sunt. Tempore incidunt voluptates nulla optio aspernatur impedit. Eligendi sed mollitia amet est rerum inventore esse! Nemo!</p>
@@ -33,31 +32,39 @@
 <p>Prova test 2</p>
 <hr>
 
-
-	<script
-		src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js"
-		integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm"
+		<script
+			src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js"
+			integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm"
 		crossorigin="anonymous"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/contrib/auto-render.min.js"
-		integrity="sha384-aGfk5kvhIq5x1x5YdvCp4upKZYnA8ckafviDpmWEKp4afOZEqOli7gqSnh8I6enH"
+		<script
+			src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/contrib/auto-render.min.js"
+			integrity="sha384-aGfk5kvhIq5x1x5YdvCp4upKZYnA8ckafviDpmWEKp4afOZEqOli7gqSnh8I6enH"
 		crossorigin="anonymous"></script>
-	<script>
-		renderMathInElement(document.body, {
-			delimiters: [
-				{left: "$$", right: "$$", display: true},
-				{left: "$", right: "$", display: false},
-			],
-			macros: {
-				'\\KK': '\\mathbb{K}',
-				'\\qed': '\\square',
-				'\\dim': '\\text{dim} \\,',
-				'\\Kernel': '\\text{Ker} \\,',
-				'\\Image': '\\text{Im} \\,',
-				'\\taleche': '\\; | \\;',
-				'\\compose': '\\, \\circ \\,'
-			}
-		});
-	</script>
-</body>
+		<script>
+			// Needed to fix the z-index of images within paragraph.
+			// It looks like that because images are inside sibiling
+			// paragraphs one cannot put then in front of the text
+			// of the sibiling paragraphs.
+			Array.prototype.slice.call(document.querySelectorAll('p'))
+				.filter(it => !!it.querySelector('img'))
+				.forEach(figure => figure.style.zIndex = 1);
+		</script>
+		<script>
+			renderMathInElement(document.body, {
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "$", right: "$", display: false},
+				],
+				macros: {
+					'\\KK': '\\mathbb{K}',
+					'\\qed': '\\square',
+					'\\dim': '\\text{dim} \\,',
+					'\\Kernel': '\\text{Ker} \\,',
+					'\\Image': '\\text{Im} \\,',
+					'\\taleche': '\\; | \\;',
+					'\\compose': '\\, \\circ \\,'
+				}
+			});
+		</script>
+	</body>
 </html>
