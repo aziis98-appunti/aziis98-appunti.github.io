@@ -64,7 +64,7 @@ function renderPages() {
 // Internal task for moving my assets files to
 // the output directory.
 function moveAssets() {
-	return src([ 'src/_assets/**/*' ])
+	return src([ 'src/assets/**/*' ])
 		.pipe(changed(DEST_ASSETS))
 		.pipe(dest('public/assets/'))
 		.pipe(connect.reload());
