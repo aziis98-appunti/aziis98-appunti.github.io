@@ -34,31 +34,40 @@ body {
 
 /* Headings */
 
+/*
+h1::before, h2::before, h3::before, h4::before {
+	content: '§';
+	margin: 0 0.25em;
+}
+*/
+
 h1 {
 	font-size: 2.25rem;
 	
-	margin: 2rem 0 0 0;
-	padding: 0;
+	margin: 4.5rem 0 0 0;
+	padding: 0 0 0 0;
 }
 
 h2 {
-	font-size: 1.75rem;
+	font-size: 2.0rem;
 	
-	margin: 1.5rem 0 0 0;
-	padding: 0;
+	margin: 3.5rem 0 0 0;
+	padding: 0 0 0 0;
 }
 
 h3 {
-	font-size: 1.25rem;
+	font-size: 1.5rem;
+	/*font-style: italic;*/
 	
-	margin: 1rem 0 0 0;
+	margin: 2.5rem 0 0 0;
 	padding: 0 0 0 0;
 }
 
 h4 {
-	font-size: 1.0rem;
+	font-size: 1.05rem;
+	text-decoration: underline;
 	
-	margin: 0.5rem 0 0 0;
+	margin: 1.5rem 0 0 0;
 	padding: 0 0 0 0;
 }
 
@@ -73,16 +82,17 @@ h1 + p, h2 + p {
 }
 
 h3 + p, h4 + p {
-	margin-top: 1rem;	
+	margin-top: 0.5rem;	
 }
 
 p, li {
 	font-size: 1rem;
 	text-align: justify;
 	
-	margin: 1rem 0;
+	margin: 0.75rem 0;
 	padding: 0;
 
+	line-height: 1.5;
 	hyphens: auto;
 }
 
@@ -152,7 +162,6 @@ blockquote p:last-child {
 a {
 	color: royalblue;
 	text-decoration: none;
-	position: relative;
 	padding: 0 0.2rem;
 	margin: 0 -0.1rem;
 	border-radius: 4px;
@@ -196,6 +205,7 @@ a:hover {
 	overflow-y: hidden;
 	overflow-x: auto;
 	padding-bottom: 0.25rem;
+	margin: 1rem 0;
 }
 
 p {
@@ -291,6 +301,7 @@ img {
 
 	ul, ol {
 		padding-left: 0;
+		margin: 1.25rem 0;
 	}
 
 }
