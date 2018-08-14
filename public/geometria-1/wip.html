@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta
 		name="viewport"
-		content="width=device-width, user-scalable=no, initial-scale=0.75">
+		content="width=device-width,initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<title>Wip</title>
 		<link rel="icon" type="image/png" href="/assets/icon@small.png" />
@@ -420,6 +420,7 @@ $$ \implies A \not\sim B $$</p>
 <p><strong>TODO:</strong> Classificazione di forza bruta delle matrici 1x1 e 2x2 e guarda caso esce la formula del determinante 2x2</p>
 </blockquote>
 <h2 id="determinante">Determinante</h2>
+<h3 id="studio-in-nodisp-buffer-143-">Studio in $\KK$</h3>
 <p>Se proviamo classificare tutti gli endomorfismi di $V = \KK^1$ otteniamo come abbiamo già visto che le uniche due classi di equivalenza sono</p>
 <p>$$
 \begin{array}{lll}
@@ -435,6 +436,7 @@ $$</p>
 $$ D_([a_{1,1}]) = a_{1,1} $$
 $$ [a_{1,1}] \text{ invertibile} \iff D_1([a_{1,1}]) \neq 0 $$</p>
 <p>Inoltre la funzione $D_1$ è <em>lineare</em> e vale $D_1([1])=1$</p>
+<h3 id="studio-in-nodisp-buffer-148-">Studio in $\KK^2$</h3>
 <p>Se proviamo a fare la stessa cosa con $V = \KK^2$ e applichiamo l&#39;algoritmo di Gauss aggiungendo tutte le varie condizioni ad i passaggi necessari otteniamo</p>
 <p>$$
 \begin{bmatrix} 
@@ -453,7 +455,7 @@ a_{1, 1} & a_{1, 2} \\
 a_{2, 1} & a_{2, 2} \\
 \end{bmatrix}\right) = a_{1, 1} a_{2, 2} - a_{1, 2} a_{2, 1} 
 $$</p>
-<p>Ed avremo che $A$ è invertibile $\iff D_2(A) \neq 0$. Possiamo anche intendere la funzione come una funzione sulle colonne della matrice 2x2.</p>
+<p>Ed avremo che $A$ è invertibile $\iff D_2(A) \neq 0$. Possiamo anche intendere la funzione come una funzione sulle colonne</p>
 <p>$$
 D_2(A) = D_2(A_1, A_2) = 
 D_2\left(
@@ -461,7 +463,202 @@ D_2\left(
 \begin{bmatrix} a_{1,2} \\ a_{2,2} \end{bmatrix}
 \right)
 $$</p>
-<p>La funzione in questo     </p>
+<p>La funzione in questo caso però non è lineare ma <em>bilineare</em> infatti</p>
+<p>$$
+D_2(\lambda A_1, \lambda A_2) = \lambda^2 D_2(A_1, A_2)
+$$</p>
+<p>Ciò significa che se fisso una colonna e faccio variare l&#39;altra ottengo una applicazione lineare della colonna in $\KK$. Ricapitoliamo ora le proprietà che abbiamo trovato per $D_2$</p>
+<ol>
+<li>$D_2$ è bilineare (rispetto alle colonne)</li>
+<li>$D_2(X, X) = 0$</li>
+<li>$D_2(I) = 1$</li>
+</ol>
+<h4 id="propriet-derivate-da-quelle-di-base">Proprietà derivate da quelle di base</h4>
+<ul>
+<li><p>$D_2(A_1, A_2) = -D(A_2, A_1)$</p>
+<p>  <strong>Dim.</strong></p>
+<p>  $$D_2(A_1 + A_2, A_1 + A_2) \overset{\text{(2)}}{=} 0 $$
+  $$ \underbrace{D_2(A_1, A_1)}_{=\,0} + D_2(A_1, A_2) + D_2(A_2, A_1) + \underbrace{D_2(A_2, A_2)}_{=\,0} = 0$$
+  $\qed$</p>
+</li>
+<li><p><strong>Prop. (Unicità)</strong> $D_2$ è l&#39;unica funzione che verifica le proprietà i, ii e iii.</p>
+<p>  <strong>Dim.</strong></p>
+<p>  Ipotizziamo che esista un&#39;altra $F : \KK^2 \times \KK^2 \to \KK$ che verifica le tre proprietà e mostriamo che $\forall A = (A_1, A_2) \implies F(A) = D_2(A)$</p>
+<p>  $$
+	A =
+	\begin{bmatrix}
+		a_{1,1} & a_{1,2} \\
+		a_{2,1} & a_{2,2}
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		a_{1,1} E_1 + a_{2,1} E_2 & 
+		a_{1,2} E_1 + a_{2,2} E_2
+	\end{bmatrix}
+	$$</p>
+<p>  Dove consideriamo $\KK^2$ nella sua base canonica $\mathscr{C} = \{ E_1, E_2 \}$. Prooviamo ora a calcolare $F(A)$ usando solo le tre proprietà che abbiamo assunto</p>
+<p>  $$
+	\begin{aligned}
+		F(\begin{bmatrix}
+			a_{1,1} & a_{1,2} \\
+			a_{2,1} & a_{2,2}
+		\end{bmatrix})
+		&\overset{\text{(1)}}{=}
+		a_{1,1} a_{1,2} \underbrace{F(E_1,E_1)}_{=\,0} + a_{1,1} a_{2,2} F(E_1,E_2) \\ & + a_{2,1} a_{1,2} F(E_2,E_1) + a_{2,1} a_{2,2} \underbrace{F(E_2,E_2)}_{=\,0} \\
+		&= a_{1,1} a_{2,2} \underbrace{F(I_2)}_{=\,1} + a_{2,1} a_{1,2} \underbrace{F(E_2, E_1)}_{=-F(I)=-1} \\
+		&= a_{1,1} a_{2,2} - a_{2,1} a_{1,2} = D_2(A)		
+	\end{aligned}
+	$$</p>
+<p>  $\qed$</p>
+</li>
+</ul>
+<h4 id="formula-del-prodotto-di-binet">Formula del prodotto di <em>Binet</em></h4>
+<p>$$
+D_2(B A) = D_2(B) D_2(A) = D_2(A) D_2(B) = D_2(A B)
+$$</p>
+<p><strong>Dim.</strong></p>
+<blockquote>
+<p><strong>TODO:</strong> A quanto pare e banale e non l&#39;ho capita</p>
+</blockquote>
+<h4 id="altre-propriet-">Altre proprietà</h4>
+<p><strong>Prop.</strong> </p>
+<p>$$ A \text{ invertibile } \iff D_2(A) \neq 0 $$</p>
+<p><strong>Dim.</strong></p>
+<ul>
+<li><p>$\boxed{\Leftarrow}$</p>
+<p>  Dimostriamo che $A \text{ non invertibile} \implies D_2(A) = 0$. Possiamo assumere che $A_2 = \lambda A_1$</p>
+<p>  $$ D_2(A_1, \lambda A_1) = \lambda D_2(A_1, A_1) = 0 $$</p>
+<p>  $\qed$</p>
+</li>
+<li><p>$\boxed{\Rightarrow}$</p>
+<p>  Ora dimostriamo invece che $A \text{ invertibile} \implies D_2(A) \neq 0$. Il fatto che $A$ sia invertibile ci dice che esiste $A^{-1}$ tale che $A A^{-1} = I$ e quindi</p>
+<p>  $$ D_2(A A^{-1}) = D_2(I) = 1 $$
+  $$ \tag{*} D_2(A) D_2(A^{-1}) = 1$$ </p>
+<p>  E serve che entrambi i termini di $\text{(*)}$ siano non zero affinché sia vera</p>
+<p>  $\qed$</p>
+</li>
+</ul>
+<p><strong>Corollario.</strong> $D_2(A^{-1}) = D_2(A)^{-1}$</p>
+<p><strong>Prop.</strong> $A, B \in M(2, \KK) : B \sim A \implies D_2(B) = D_2(A)$</p>
+<p><strong>Dim.</strong></p>
+<p>$$ \exists P \in GL(2, \KK) : B = P A P^{-1} $$
+$$ 
+\begin{aligned}
+D_2(B) 
+&= D_2(P A P^{-1}) = D_2(P) D_2(A) D_2(P^{-1}) \\
+& = D_2(P) D_2(P^{-1}) D_2(A) = D_2(P P^{-1}) D_2(A) \\
+& = D_2(I) D_2(A) = D_2(A) 
+\end{aligned}
+$$</p>
+<p>$\qed$</p>
+<h3 id="studio-in-nodisp-buffer-181-">Studio in $\KK^n$</h3>
+<p><strong>Def.</strong></p>
+<p>Sia $A \in M(n, \KK) = \underbrace{\KK^n \times \cdots \times \KK^n}_{n}$ con $n \geq 1$ ed $A = [A_1, \dots, A_n]$. Una <strong>funzione determinante</strong> a livello $n$ è $D_n : \underbrace{\KK^n \times \cdots \times \KK^n}_{n} \to \KK$ tale che</p>
+<ol>
+<li>$D_n$ è $n$-lineare</li>
+<li>$D_n(\dots X, X \dots) = 0$</li>
+<li>$D_n(I) = 1$</li>
+</ol>
+<h4 id="propriet-">Proprietà</h4>
+<ul>
+<li><p>$D_n(\dots X,Y \dots) = -D_n(\dots Y,X \dots)$</p>
+<p>  <strong>Dim.</strong></p>
+<p>  Basta sviluppare la seguente usando la <em>prima</em> proprietà $D_n( \dots X+Y,X+Y \dots ) \overset{\text{(2)}}{=} 0$ e si ottiene</p>
+<p>  $$D_n(\dots X,Y \dots) + D_n(\dots Y,X \dots) = 0$$</p>
+<p>  $\qed$</p>
+</li>
+</ul>
+<p>Le due seguenti si mostrano usando la precedente ed <em>agitando le mani</em></p>
+<ul>
+<li><p>$D_n(\dots X \dots X \dots) = 0$ </p>
+</li>
+<li><p>$D_n(\dots X \dots Y \dots) = -D_n(\dots Y \dots X \dots)$</p>
+</li>
+</ul>
+<p><strong>Prop.</strong> Se $D_n$ esiste è <strong>unico</strong> e ne possiamo trovare una formula esplicita.</p>
+<blockquote>
+<p><strong>Gruppo delle permutazioni</strong></p>
+<p>$S_n = $ gruppo delle permutazioni su $\{ 1, \dots, n \} = \NN_n$</p>
+<p>Valgono le seguenti proprietà</p>
+<ul>
+<li>$|S_n| = n!$</li>
+<li>$S_n \ni \sigma : \{ 1, \dots, n \} \to \{ 1, \dots, n \}$ è bigettiva</li>
+<li>$(S_n \; \compose)$ è un gruppo</li>
+</ul>
+</blockquote>
+<p><strong>Dim.</strong></p>
+<p>$\{ E_1, \dots, E_n \}$ base canonica di $\KK^n$, con $A \in M(n, \KK)$</p>
+<p>$$
+A = [A_1, \dots, A_n] \qquad A = [a_{i, j}]_{\tiny\begin{array}{l} i \in \NN_n \\ j \in \NN_n \end{array}}
+$$</p>
+<p>$$
+A =
+\left[
+\;
+\sum_{i \in \NN_n}{a_{i,1} E_i} 
+\quad \dots \quad
+\sum_{i \in \NN_n}{a_{i,n} E_i} 
+\; 
+\right]
+$$</p>
+<!-- 
+> **Test in Latex:** Versione ancora più compatta della formula precedente usando notazioni personali bll
+> $$
+A =
+\left[
+\sum_{\NN_n}{a_{\square,j} E_\square} 
+\right]_{j \in \NN_n}
+$$
+> $$
+A =
+(+ / a_{i,j} E_i :_i \NN_n) :_j \NN_n
+$$
+ -->
+
+<p>Sviluppando completamente $D_n(A)$ usando la $n$-linearità e cancellando i casi in cui le colonne sono uguali otteniamo</p>
+<p>$$
+\sum_{\sigma \in S_n} a_{\sigma(1),1} \dots a_{\sigma(n),n} D_n([E_{\sigma(1)} \dots E_{\sigma(n)}])
+$$</p>
+<p>Possiamo ad esempio vedere il caso $n = 2: S_2 = \{ \text{id}, \begin{bmatrix} 1 & 2 \\ 2 & 1 \end{bmatrix} \}$ che infatti risulta essere </p>
+<p>$$
+a_{1,1} a_{2,2} D_2{E_1, E_2} + a_{2,1} a_{1,2} D_2{E_2, E_1}
+$$</p>
+<p>In generale $D_{\xi_\sigma} = (-1)^{S(AG)}$ dove l&#39;esponente è il numero di scambi da fare per raggiungere l&#39;identità nell&#39;algoritmo di Gauss. E quindi se $D_n$ esiste abbiamo che $\forall A \in M(n, \KK)$</p>
+<p>$$
+\sum_{\sigma \in S_n} a_{\sigma(1),1} \dots a_{\sigma(n),n} (-1)^{S(AG)}
+$$</p>
+<blockquote>
+<p><strong>TODO.</strong> Bisognerebbe tipo dimostrare che questa va bene e rispetta le tre proprietà</p>
+</blockquote>
+<h4 id="definizione-ricorsiva">Definizione ricorsiva</h4>
+<p>Possiamo anche procedere per induzione per definire il determinante, per $n=1$ abbia una funzione che va bene. Ora supponiamo di aver definito $D_n$ e costruiamo una definizione di $D_{n+1}$</p>
+<p>Consideriamo le colonne di una matrice $n+1 \times n+1$ e fissiamo un indice di riga $i$.
+$$
+A = [ A_1, \dots, A_{n+1} ]
+$$</p>
+<p>Sia $A_{i,j}$ la sottomatrice $n \times n$ ottenuta cancellando la $i$-esima riga e la $j$-esima colonna.</p>
+<p>Definiamo ora per induzione $F_i(A)$ nel seguente modo</p>
+<p>$$
+F_i(A) \coloneqq \sum_{j=1}^{n+1} a_{i,j} D_n(A_{i,j}) (-1)^{i+j}
+$$</p>
+<p><strong>Prop.</strong> Per ogni scelta di $i$, $F_i$ verifica le tre proprietà di $D_{n+1}$ e risulta $F_i = D_{n+1}$.</p>
+<p><strong>Dim.</strong></p>
+<ol>
+<li><p>Nel caso $n=2$ con $i=1$ abbiamo
+ $$
+	\begin{aligned}
+		F_1\left(\begin{bmatrix}
+				a_{1,1} & a_{1,2} \\
+				a_{2,1} & a_{2,2}
+			\end{bmatrix}\right) &= \sum_{j=1}^2 a_{1,j} \det (A_{1,j}) (-1)^{i+j} \\
+			&= a_{1,1} a_{2,2} (-1)^{1+1} + a_{1,2} a_{2,1} (-1)^{1+2} \\
+			&= a_{1,1} a_{2,2} - a_{1,2} a_{2,1} \\
+	\end{aligned}
+	$$</p>
+<p> $\qed$</p>
+</li>
+<li>Ora vediamo che nel caso induttivo $F_i$ verifica la $(n+1)$-linearità.</li>
+</ol>
 <div style="height: 300px;"></div>
 
 <script>
@@ -512,10 +709,14 @@ setTimeout(() => {
 				],
 				macros: {
 					'\\KK': '\\mathbb{K}',
+					'\\NN': '\\mathbb{N}',
+
 					'\\qed': '\\square',
+					
 					'\\dim': '\\text{dim} \\,',
 					'\\Kernel': '\\text{Ker} \\,',
 					'\\Image': '\\text{Im} \\,',
+					
 					'\\taleche': '\\; | \\;',
 					'\\compose': '\\, \\circ \\,'
 				}

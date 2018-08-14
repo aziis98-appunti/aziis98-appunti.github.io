@@ -517,6 +517,8 @@ $$ \implies A \not\sim B $$
 
 ## Determinante
 
+### Studio in $\KK$
+
 Se proviamo classificare tutti gli endomorfismi di $V = \KK^1$ otteniamo come abbiamo già visto che le uniche due classi di equivalenza sono
 
 $$
@@ -536,6 +538,8 @@ $$ D_([a_{1,1}]) = a_{1,1} $$
 $$ [a_{1,1}] \text{ invertibile} \iff D_1([a_{1,1}]) \neq 0 $$
 
 Inoltre la funzione $D_1$ è _lineare_ e vale $D_1([1])=1$
+
+### Studio in $\KK^2$
 
 Se proviamo a fare la stessa cosa con $V = \KK^2$ e applichiamo l'algoritmo di Gauss aggiungendo tutte le varie condizioni ad i passaggi necessari otteniamo
 
@@ -559,7 +563,7 @@ a_{2, 1} & a_{2, 2} \\
 \end{bmatrix}\right) = a_{1, 1} a_{2, 2} - a_{1, 2} a_{2, 1} 
 $$
 
-Ed avremo che $A$ è invertibile $\iff D_2(A) \neq 0$. Possiamo anche intendere la funzione come una funzione sulle colonne della matrice 2x2.
+Ed avremo che $A$ è invertibile $\iff D_2(A) \neq 0$. Possiamo anche intendere la funzione come una funzione sulle colonne
 
 $$
 D_2(A) = D_2(A_1, A_2) = 
@@ -569,7 +573,298 @@ D_2\left(
 \right)
 $$
 
-La funzione in questo 	
+La funzione in questo caso però non è lineare ma _bilineare_ infatti
+
+$$
+D_2(\lambda A_1, \lambda A_2) = \lambda^2 D_2(A_1, A_2)
+$$
+
+Ciò significa che se fisso una colonna e faccio variare l'altra ottengo una applicazione lineare della colonna in $\KK$. Ricapitoliamo ora le proprietà che abbiamo trovato per $D_2$
+1. $D_2$ è bilineare (rispetto alle colonne)
+2. $D_2(X, X) = 0$
+3. $D_2(I) = 1$
+
+#### Proprietà derivate da quelle di base
+
+- $D_2(A_1, A_2) = -D(A_2, A_1)$
+	
+	**Dim.**
+	
+	$$D_2(A_1 + A_2, A_1 + A_2) \overset{\text{(2)}}{=} 0 $$
+	$$ \underbrace{D_2(A_1, A_1)}_{=\,0} + D_2(A_1, A_2) + D_2(A_2, A_1) + \underbrace{D_2(A_2, A_2)}_{=\,0} = 0$$
+	$\qed$
+
+- **Prop. (Unicità)** $D_2$ è l'unica funzione che verifica le proprietà i, ii e iii.
+	
+	**Dim.**
+
+	Ipotizziamo che esista un'altra $F : \KK^2 \times \KK^2 \to \KK$ che verifica le tre proprietà e mostriamo che $\forall A = (A_1, A_2) \implies F(A) = D_2(A)$
+
+	$$
+	A =
+	\begin{bmatrix}
+		a_{1,1} & a_{1,2} \\
+		a_{2,1} & a_{2,2}
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		a_{1,1} E_1 + a_{2,1} E_2 & 
+		a_{1,2} E_1 + a_{2,2} E_2
+	\end{bmatrix}
+	$$
+	
+	Dove consideriamo $\KK^2$ nella sua base canonica $\mathscr{C} = \{ E_1, E_2 \}$. Prooviamo ora a calcolare $F(A)$ usando solo le tre proprietà che abbiamo assunto
+
+	$$
+	\begin{aligned}
+		F(\begin{bmatrix}
+			a_{1,1} & a_{1,2} \\
+			a_{2,1} & a_{2,2}
+		\end{bmatrix})
+		&\overset{\text{(1)}}{=}
+		a_{1,1} a_{1,2} \underbrace{F(E_1,E_1)}_{=\,0} + a_{1,1} a_{2,2} F(E_1,E_2) \\ & + a_{2,1} a_{1,2} F(E_2,E_1) + a_{2,1} a_{2,2} \underbrace{F(E_2,E_2)}_{=\,0} \\
+		&= a_{1,1} a_{2,2} \underbrace{F(I_2)}_{=\,1} + a_{2,1} a_{1,2} \underbrace{F(E_2, E_1)}_{=-F(I)=-1} \\
+		&= a_{1,1} a_{2,2} - a_{2,1} a_{1,2} = D_2(A)		
+	\end{aligned}
+	$$
+
+	$\qed$
+
+#### Formula del prodotto di _Binet_
+
+$$
+D_2(B A) = D_2(B) D_2(A) = D_2(A) D_2(B) = D_2(A B)
+$$
+
+**Dim.**
+
+> **TODO:** A quanto pare e banale e non l'ho capita
+
+#### Altre proprietà
+
+**Prop.** 
+
+$$ A \text{ invertibile } \iff D_2(A) \neq 0 $$
+
+**Dim.**
+
+- $\boxed{\Leftarrow}$
+
+	Dimostriamo che $A \text{ non invertibile} \implies D_2(A) = 0$. Possiamo assumere che $A_2 = \lambda A_1$
+
+	$$ D_2(A_1, \lambda A_1) = \lambda D_2(A_1, A_1) = 0 $$
+
+	$\qed$
+
+- $\boxed{\Rightarrow}$
+
+	Ora dimostriamo invece che $A \text{ invertibile} \implies D_2(A) \neq 0$. Il fatto che $A$ sia invertibile ci dice che esiste $A^{-1}$ tale che $A A^{-1} = I$ e quindi
+
+	$$ D_2(A A^{-1}) = D_2(I) = 1 $$
+	$$ \tag{*} D_2(A) D_2(A^{-1}) = 1$$ 
+
+	E serve che entrambi i termini di $\text{(*)}$ siano non zero affinché sia vera
+
+	$\qed$
+	
+**Corollario.** $D_2(A^{-1}) = D_2(A)^{-1}$
+
+**Prop.** $A, B \in M(2, \KK) : B \sim A \implies D_2(B) = D_2(A)$
+
+**Dim.**
+
+$$ \exists P \in GL(2, \KK) : B = P A P^{-1} $$
+$$ 
+\begin{aligned}
+D_2(B) 
+&= D_2(P A P^{-1}) = D_2(P) D_2(A) D_2(P^{-1}) \\
+& = D_2(P) D_2(P^{-1}) D_2(A) = D_2(P P^{-1}) D_2(A) \\
+& = D_2(I) D_2(A) = D_2(A) 
+\end{aligned}
+$$
+
+$\qed$
+
+### Studio in $\KK^n$
+
+**Def.**
+
+Sia $A \in M(n, \KK) = \underbrace{\KK^n \times \cdots \times \KK^n}_{n}$ con $n \geq 1$ ed $A = [A_1, \dots, A_n]$. Una **funzione determinante** a livello $n$ è $D_n : \underbrace{\KK^n \times \cdots \times \KK^n}_{n} \to \KK$ tale che
+
+1. $D_n$ è $n$-lineare
+2. $D_n(\dots X, X \dots) = 0$
+2. $D_n(I) = 1$
+
+#### Proprietà
+
+- $D_n(\dots X,Y \dots) = -D_n(\dots Y,X \dots)$
+	
+	**Dim.**
+
+	Basta sviluppare la seguente usando la _prima_ proprietà $D_n( \dots X+Y,X+Y \dots ) \overset{\text{(2)}}{=} 0$ e si ottiene
+
+	$$D_n(\dots X,Y \dots) + D_n(\dots Y,X \dots) = 0$$
+
+	$\qed$
+
+Le due seguenti si mostrano usando la precedente ed _agitando le mani_
+
+- $D_n(\dots X \dots X \dots) = 0$ 
+
+- $D_n(\dots X \dots Y \dots) = -D_n(\dots Y \dots X \dots)$
+
+**Prop.** Se $D_n$ esiste è **unico** e ne possiamo trovare una formula esplicita.
+
+> **Gruppo delle permutazioni**
+> 
+> $S_n = $ gruppo delle permutazioni su $\{ 1, \dots, n \} = \NN_n$
+> 
+> Valgono le seguenti proprietà
+> - $|S_n| = n!$
+> - $S_n \ni \sigma : \{ 1, \dots, n \} \to \{ 1, \dots, n \}$ è bigettiva
+> - $(S_n \; \compose)$ è un gruppo
+> 
+
+**Dim.**
+
+$\{ E_1, \dots, E_n \}$ base canonica di $\KK^n$, con $A \in M(n, \KK)$
+
+$$
+A = [A_1, \dots, A_n] \qquad A = [a_{i, j}]_{\tiny\begin{array}{l} i \in \NN_n \\ j \in \NN_n \end{array}}
+$$
+
+$$
+A =
+\left[
+\;
+\sum_{i \in \NN_n}{a_{i,1} E_i} 
+\quad \dots \quad
+\sum_{i \in \NN_n}{a_{i,n} E_i} 
+\; 
+\right]
+$$
+
+<!-- 
+> **Test in Latex:** Versione ancora più compatta della formula precedente usando notazioni personali bll
+> $$
+A =
+\left[
+\sum_{\NN_n}{a_{\square,j} E_\square} 
+\right]_{j \in \NN_n}
+$$
+> $$
+A =
+(+ / a_{i,j} E_i :_i \NN_n) :_j \NN_n
+$$
+ -->
+
+Sviluppando completamente $D_n(A)$ usando la $n$-linearità e cancellando i casi in cui le colonne sono uguali otteniamo
+
+$$
+\sum_{\sigma \in S_n} a_{\sigma(1),1} \dots a_{\sigma(n),n} D_n([E_{\sigma(1)} \dots E_{\sigma(n)}])
+$$
+
+Possiamo ad esempio vedere il caso $n = 2: S_2 = \{ \text{id}, \begin{bmatrix} 1 & 2 \\ 2 & 1 \end{bmatrix} \}$ che infatti risulta essere 
+
+$$
+a_{1,1} a_{2,2} D_2{E_1, E_2} + a_{2,1} a_{1,2} D_2{E_2, E_1}
+$$
+
+In generale $D_{\xi_\sigma} = (-1)^{S(AG)}$ dove l'esponente è il numero di scambi da fare per raggiungere l'identità nell'algoritmo di Gauss. E quindi se $D_n$ esiste abbiamo che $\forall A \in M(n, \KK)$
+
+$$
+\sum_{\sigma \in S_n} a_{\sigma(1),1} \dots a_{\sigma(n),n} (-1)^{S(AG)}
+$$
+
+> **TODO.** Bisognerebbe tipo dimostrare che questa va bene e rispetta le tre proprietà
+
+#### Definizione ricorsiva
+
+Possiamo anche procedere per induzione per definire il determinante, per $n=1$ abbia una funzione che va bene. Ora supponiamo di aver definito $D_n$ e costruiamo una definizione di $D_{n+1}$
+
+Consideriamo le colonne di una matrice $n+1 \times n+1$ e fissiamo un indice di riga $i$.
+$$
+A = [ A_1, \dots, A_{n+1} ]
+$$
+
+Sia $A_{i,j}$ la sottomatrice $n \times n$ ottenuta cancellando la $i$-esima riga e la $j$-esima colonna.
+
+Definiamo ora per induzione $F_i(A)$ nel seguente modo
+
+$$
+F_i(A) \coloneqq \sum_{j=1}^{n+1} a_{i,j} D_n(A_{i,j}) (-1)^{i+j}
+$$
+
+**Prop.** Per ogni scelta di $i$, $F_i$ verifica le tre proprietà di $D_{n+1}$ e risulta $F_i = D_{n+1}$.
+
+**Dim.**
+
+1. Nel caso $n=2$ con $i=1$ abbiamo
+	$$
+	\begin{aligned}
+		F_1\left(\begin{bmatrix}
+				a_{1,1} & a_{1,2} \\
+				a_{2,1} & a_{2,2}
+			\end{bmatrix}\right) &= \sum_{j=1}^2 a_{1,j} \det (A_{1,j}) (-1)^{i+j} \\
+			&= a_{1,1} a_{2,2} (-1)^{1+1} + a_{1,2} a_{2,1} (-1)^{1+2} \\
+			&= a_{1,1} a_{2,2} - a_{1,2} a_{2,1} \\
+	\end{aligned}
+	$$
+
+	$\qed$
+2. Ora vediamo che nel caso induttivo $F_i$ verifica la $(n+1)$-linearità.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
