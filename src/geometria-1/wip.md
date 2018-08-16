@@ -629,6 +629,14 @@ Ciò significa che se fisso una colonna e faccio variare l'altra ottengo una app
 	$$
 
 	$\qed$
+	
+- Se scegliamo $F_\lambda : \KK^2 \times \KK^2 \to \KK$ in modo che verifichi la prima e la seconda proprietà e tale che $F_\lambda (I_2) = \lambda$ allora otteniamo che $F_\lambda(A) = \lambda D_2(A)$ e possiamo definire
+	
+	$$
+	\Lambda (\KK^2) = \{ F : \KK^2 \times \KK^2 \to \KK \text{ che verificano i) e ii)} \}
+	$$
+
+	E' uno spazio vettoriale con $\dim \Lambda = 1$ e $D_2$ ne è una base. 
 
 #### Formula del prodotto di _Binet_
 
@@ -638,7 +646,15 @@ $$
 
 **Dim.**
 
-> **TODO:** A quanto pare e banale e non l'ho capita
+Consideriamo una $F : \KK^2 \times \KK^2 \to \KK$ in modo che $F(A) \coloneqq D_2(B A)$ abbiamo che
+
+$$
+D_2(B A) = F(A) \overset{\text{s.v.}}{=} F(I) D_2(A) = D_2(B) D_2(A)
+$$
+
+$\qed$
+
+> **TODO.** Rendere la dimostrazione più chiara
 
 #### Altre proprietà
 
@@ -813,11 +829,46 @@ $$
 
 	$\qed$
 2. Ora vediamo che nel caso induttivo $F_i$ verifica la $(n+1)$-linearità.
+	
+	> **TODO.** Scoprire dove sia finita la dimostrazione
 
+### Cramer
 
+### Formula determinante per $A^{-1}$
 
+### Interpretazione Geometrica del determinante
 
+#### Orientazione
 
+#### Area del parallelogramma 
+
+## Altri invarianti
+
+Per ora sappiamo che lo _spettro_ e le _molteplicità geometriche_ di $f$ sono degli invarianti per simulitudine. Inoltre possiamo vedere che
+
+$$
+\lambda \in \text{Spettro}(A) \iff \text{rango}(A - \lambda I) < n \iff \det (A - \lambda I) = 0
+$$
+
+**Def.**
+Si dice **matrice caratteristica** di $A$
+$$
+A - t I \in M(n, \KK[t])
+$$
+e **polinomio caratteristico** di $A$
+$$
+p_A (t) = \det(A - t I) \in \KK[t]
+$$
+
+**Lemma.** $\lambda \in \text{Spettro}(A) \iff \lambda$ è una radice del polinomio caratteristico di $A$.
+
+**Def.** Ora possiamo definire la **molteplicità algebrica** di $\lambda \in \text{Spettro}(A)$ (ovvero $p_A(\lambda) = 0$).
+$$
+p_A(t) = (\lambda - t)^{m_\lambda} Q(t) \qquad \text{ con } Q(\lambda) \neq 0
+$$
+Ed in questo caso $m_\lambda$ è detta molteplicità algebrica della radice $\lambda$ di $p_A(t)$.
+
+**Prop.** $p_A(t)$ è un invariante per coniugazione.
 
 
 
@@ -879,21 +930,21 @@ $$
 
 // Fix for correctly remembering scrollPos
 
-setTimeout(() => {
-	window.scrollTo(0, 100000);
-}, 1000);
-
-// const scrollPos = localStorage.getItem("mathematics.scroll");
-
-// if (scrollPos) {
-// 	setTimeout(() => {
-// 			window.scrollTo(0, parseInt(scrollPos));
-// 	}, 1000);
-// }
-
-// setInterval(() => {
-// 	localStorage.setItem("mathematics.scroll", window.pageYOffset);
+// setTimeout(() => {
+// 	window.scrollTo(0, 100000);
 // }, 1000);
+
+const scrollPos = localStorage.getItem("mathematics.scroll");
+
+if (scrollPos) {
+	setTimeout(() => {
+			window.scrollTo(0, parseInt(scrollPos));
+	}, 1000);
+}
+
+setInterval(() => {
+	localStorage.setItem("mathematics.scroll", window.pageYOffset);
+}, 1000);
 
 </script>
 

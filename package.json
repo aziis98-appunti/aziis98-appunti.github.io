@@ -5,7 +5,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "build": "gulp",
-    "start:dev": "gulp dev"
+    "serve": "gulp dev"
   },
   "author": "aziis98 <antonio.delucreziis@gmail.com>",
   "license": "MIT",
