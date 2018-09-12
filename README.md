@@ -1,5 +1,9 @@
 # Raccolta di vari miei appunti
 
+## Getting up and running
+
+	npm run serve
+
 ## Come pushare cose nuove
 
 Eseguire il seguente comando per eseguire uno split della directory "public"

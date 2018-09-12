@@ -796,7 +796,7 @@ $$
 
 #### Definizione ricorsiva
 
-Possiamo anche procedere per induzione per definire il determinante, per $n=1$ abbia una funzione che va bene. Ora supponiamo di aver definito $D_n$ e costruiamo una definizione di $D_{n+1}$
+Possiamo anche procedere per induzione per definire il determinante, per $n=1$ abbiamo banalmente una funzione. Ora supponiamo di aver definito $D_n$ e costruiamo una definizione di $D_{n+1}$
 
 Consideriamo le colonne di una matrice $n+1 \times n+1$ e fissiamo un indice di riga $i$.
 $$
@@ -834,7 +834,49 @@ $$
 
 ### Cramer
 
+Vogliamo risolvere il problema $A x = B$, dove $A \in \text{GL}(n, \KK)$. La soluzione è unica ed è
+
+$$
+x = A^{-1} B
+$$ 
+
+Consideriamo le colonne di $A$ ed abbiamo $[ A_1, \dots, A_n ] x = B$, se $x = \[ x_1, \dots, x_n \]^t$ è la soluzione abbiamo che 
+
+$$
+B = x_1 A_1 + \dots + x_n A_n
+$$
+
+$$
+\begin{aligned}
+	D(A_1 \dots x_1 A_1 + \dots + x_n A_n \dots A_n) \\
+	& = D(A_1 \dots x_j A_j \dots A_n) \\
+	& = x_j D(A_1 \dots A_n)
+\end{aligned}
+$$
+
+E quindi
+
+$$
+x_j = \frac{D(A_1 \dots A_{j-1} B A_j \dots A_n)}{\underbrace{D(A)}_{\neq 0}}
+$$
+
 ### Formula determinante per $A^{-1}$
+
+Sia $A \in \text{GL}(n, \KK) \implies A^{-1} = [X_1, \dots, X_n]$ e vogliamo trovare le $X_i$. Sappiamo che $A [ X_1, \dots, X_n ] = [ E_1, \dots, E_n ] = I_n$. Basta quindi risolvere gli $n$ sistemi lineari che abbiamo ricavato.
+
+$$
+\begin{cases}
+	A X_1 = E_1 \\
+	\vdots \\
+	A X_n = E_n \\
+\end{cases}
+$$
+
+Ogni $X_i = [ x_{1, 1}, \dots, x_{n, 1} ]^t \implies$
+
+$$
+	x_{i, j} = \frac{\det(A_1 \dots A_{i - 1} E_j A_i \dots A_n)}{\det(A)}
+$$
 
 ### Interpretazione Geometrica del determinante
 
